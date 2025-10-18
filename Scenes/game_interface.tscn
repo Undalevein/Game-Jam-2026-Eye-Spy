@@ -1,4 +1,12 @@
-[gd_scene format=3 uid="uid://xcbhh04btsa7"]
+[gd_scene load_steps=4 format=3 uid="uid://xcbhh04btsa7"]
+
+[ext_resource type="FontFile" uid="uid://cr6golww4ofp8" path="res://Fonts/novem___.ttf" id="1_pcnj6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p428j"]
+font = ExtResource("1_pcnj6")
+
+[sub_resource type="LabelSettings" id="LabelSettings_pcnj6"]
+font = ExtResource("1_pcnj6")
 
 [node name="GameInterface" type="Control"]
 layout_mode = 3
@@ -22,4 +30,15 @@ offset_top = 74.0
 offset_right = 1103.0
 offset_bottom = 539.0
 text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
+label_settings = SubResource("LabelSettings_p428j")
+autowrap_mode = 3
+
+[node name="CameraNumberLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 60.0
+offset_right = 304.0
+offset_bottom = 83.0
+text = "Camera #"
+label_settings = SubResource("LabelSettings_pcnj6")
 autowrap_mode = 3
