@@ -38,11 +38,6 @@ visible = false
 [node name="PauseMenu" parent="UI/Camera2D/CanvasLayer" instance=ExtResource("2_vifcx")]
 visible = false
 
-[node name="Levels" type="Node2D" parent="."]
-
-[node name="Level1" parent="Levels" instance=ExtResource("6_flgk0")]
-visible = false
-
 [node name="Background" type="ColorRect" parent="."]
 z_index = -4096
 offset_left = -1033.0
@@ -50,6 +45,10 @@ offset_top = -676.0
 offset_right = 3499.0
 offset_bottom = 1752.0
 color = Color(0.08627451, 0.09411765, 0.08627451, 1)
+
+[node name="Levels" type="Node2D" parent="."]
+
+[node name="Level1" parent="Levels" instance=ExtResource("6_flgk0")]
 
 [connection signal="start_game" from="UI/Camera2D/CanvasLayer/MainMenu" to="." method="_on_main_menu_start_game"]
 [connection signal="return_to_menu" from="UI/Camera2D/CanvasLayer/Win" to="." method="_on_win_return_to_menu"]
