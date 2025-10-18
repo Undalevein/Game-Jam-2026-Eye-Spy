@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://i1w35u7nma1u"]
+[gd_scene load_steps=5 format=3 uid="uid://i1w35u7nma1u"]
 
 [ext_resource type="Script" uid="uid://bmuobq0qjdpn5" path="res://Scenes/Loss/loss.gd" id="1_yfqq4"]
 [ext_resource type="FontFile" uid="uid://cr6golww4ofp8" path="res://Fonts/novem___.ttf" id="2_j40ta"]
+[ext_resource type="Theme" uid="uid://bhlemtwoctqt1" path="res://Themes/ButtonTheme.tres" id="3_j40ta"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b4n1q"]
 paragraph_spacing = 2.0
@@ -49,6 +50,7 @@ offset_right = 188.5
 offset_bottom = -146.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_j40ta")
 text = "Return to Menu
 "
 

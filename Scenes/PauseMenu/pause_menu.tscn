@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu4nq7khuo13p"]
+[gd_scene load_steps=5 format=3 uid="uid://cu4nq7khuo13p"]
 
 [ext_resource type="FontFile" uid="uid://cr6golww4ofp8" path="res://Fonts/novem___.ttf" id="1_bgicp"]
 [ext_resource type="Script" uid="uid://c1w4ru2u31ho3" path="res://Scenes/PauseMenu/pause_menu.gd" id="1_pmgrh"]
+[ext_resource type="Theme" uid="uid://bhlemtwoctqt1" path="res://Themes/ButtonTheme.tres" id="3_7flpu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pmgrh"]
 font = ExtResource("1_bgicp")
@@ -55,6 +56,7 @@ offset_right = 250.0
 offset_bottom = -413.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7flpu")
 text = "Continue Game"
 
 [node name="MainMenuButton" type="Button" parent="."]
@@ -65,11 +67,12 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -250.0
-offset_top = -370.0
+offset_top = -364.0
 offset_right = 250.0
-offset_bottom = -270.0
+offset_bottom = -264.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7flpu")
 text = "Main Menu"
 
 [node name="QuitButton" type="Button" parent="."]
@@ -85,6 +88,7 @@ offset_right = 250.0
 offset_bottom = -113.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_7flpu")
 text = "Quit Game"
 
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn506ewwgm05c"]
+[gd_scene load_steps=4 format=3 uid="uid://cn506ewwgm05c"]
 
 [ext_resource type="Texture2D" uid="uid://diqibyuwdgmq8" path="res://Sprites/icon.svg" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://xdyyjthyhiio" path="res://Scenes/MainMenu/main_menu.gd" id="1_7vrkn"]
+[ext_resource type="Theme" uid="uid://bhlemtwoctqt1" path="res://Themes/ButtonTheme.tres" id="2_qgdf6"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -26,6 +27,7 @@ offset_bottom = -268.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(0, 100)
+theme = ExtResource("2_qgdf6")
 text = "Start
 "
 
@@ -43,6 +45,7 @@ offset_bottom = -134.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(0, 50)
+theme = ExtResource("2_qgdf6")
 text = "Quit
 "
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6b2q3c6pph8b"]
+[gd_scene load_steps=5 format=3 uid="uid://b6b2q3c6pph8b"]
 
 [ext_resource type="Script" uid="uid://dhrowwf5xyc1l" path="res://Scenes/Win/win.gd" id="1_syth7"]
 [ext_resource type="FontFile" uid="uid://cr6golww4ofp8" path="res://Fonts/novem___.ttf" id="2_aato0"]
+[ext_resource type="Theme" uid="uid://bhlemtwoctqt1" path="res://Themes/ButtonTheme.tres" id="2_rqevv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hgi8f"]
 paragraph_spacing = 2.0
@@ -31,6 +32,7 @@ offset_right = 753.5
 offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_rqevv")
 text = "You have escaped the mansion.
 
 Well played."
@@ -51,6 +53,7 @@ offset_right = 188.5
 offset_bottom = -146.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("2_rqevv")
 text = "Return to Menu
 "
 

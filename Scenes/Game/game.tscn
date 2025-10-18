@@ -49,6 +49,7 @@ color = Color(0.08627451, 0.09411765, 0.08627451, 1)
 [node name="Levels" type="Node2D" parent="."]
 
 [node name="Level1" parent="Levels" instance=ExtResource("6_flgk0")]
+visible = false
 
 [connection signal="start_game" from="UI/Camera2D/CanvasLayer/MainMenu" to="." method="_on_main_menu_start_game"]
 [connection signal="return_to_menu" from="UI/Camera2D/CanvasLayer/Win" to="." method="_on_win_return_to_menu"]
