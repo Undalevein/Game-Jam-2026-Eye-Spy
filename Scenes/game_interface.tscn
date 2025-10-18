@@ -4,9 +4,11 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_p428j"]
 font = ExtResource("1_pcnj6")
+font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_pcnj6"]
 font = ExtResource("1_pcnj6")
+font_size = 40
 
 [node name="GameInterface" type="Control"]
 layout_mode = 3
@@ -17,28 +19,39 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 830.0
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -658.0
+offset_top = -1000.0
+offset_bottom = 1000.0
+grow_horizontal = 0
+grow_vertical = 2
 color = Color(0.058034733, 0.2151418, 0.17079514, 1)
 
-[node name="PerilDialogue" type="Label" parent="."]
-layout_mode = 0
-offset_left = 878.0
-offset_top = 74.0
-offset_right = 1103.0
-offset_bottom = 539.0
+[node name="PerilDialogue" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 52.0
+offset_top = -443.0
+offset_right = 479.0
+offset_bottom = 443.0
+grow_vertical = 2
 text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
 label_settings = SubResource("LabelSettings_p428j")
 autowrap_mode = 3
 
 [node name="CameraNumberLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 79.0
-offset_top = 60.0
-offset_right = 304.0
-offset_bottom = 83.0
+offset_left = 228.0
+offset_top = 118.0
+offset_right = 453.0
+offset_bottom = 158.0
 text = "Camera #"
 label_settings = SubResource("LabelSettings_pcnj6")
 autowrap_mode = 3
