@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://xcbhh04btsa7"]
+
+[node name="GameInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 830.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.058034733, 0.2151418, 0.17079514, 1)
+
+[node name="PerilDialogue" type="Label" parent="."]
+layout_mode = 0
+offset_left = 878.0
+offset_top = 74.0
+offset_right = 1103.0
+offset_bottom = 539.0
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
+autowrap_mode = 3

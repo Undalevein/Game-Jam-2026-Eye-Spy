@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dum34mb4dxme5"]
+
+[ext_resource type="PackedScene" uid="uid://xcbhh04btsa7" path="res://Scenes/game_interface.tscn" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://cn506ewwgm05c" path="res://main_menu.tscn" id="2_qxrlw"]
+
+[node name="Game" type="Node2D"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Camera2D" type="Camera2D" parent="UI"]
+anchor_mode = 0
+
+[node name="GameInterface" parent="UI/Camera2D" instance=ExtResource("1_ebmjs")]
+
+[node name="MainMenu" parent="UI/Camera2D" instance=ExtResource("2_qxrlw")]

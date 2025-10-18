@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn506ewwgm05c"]
+
+[ext_resource type="Texture2D" uid="uid://diqibyuwdgmq8" path="res://icon.svg" id="1_06t4h"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 413.0
+offset_right = 645.0
+offset_bottom = 517.0
+text = "Start
+"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 534.0
+offset_right = 633.0
+offset_bottom = 580.0
+text = "Quit
+"
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(586, 206)
+texture = ExtResource("1_06t4h")
