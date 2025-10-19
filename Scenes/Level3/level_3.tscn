@@ -304,6 +304,18 @@ scale = Vector2(3.9999986, 3.9999986)
 position = Vector2(91550, -3949.9995)
 scale = Vector2(4.991206, 6.4018526)
 
+[node name="LavaBackground7" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+position = Vector2(91550, -3949.9995)
+scale = Vector2(4.991206, 6.4018526)
+
+[node name="LavaBackground8" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+position = Vector2(91550, -3949.9995)
+scale = Vector2(4.991206, 6.4018526)
+
+[node name="LavaBackground9" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+position = Vector2(86460, -3949.9995)
+scale = Vector2(4.991206, 6.4018526)
+
 [node name="LavaBackground2" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
 position = Vector2(96629.99, -3940.0002)
 scale = Vector2(4.991206, 6.4018526)
@@ -316,6 +328,10 @@ scale = Vector2(4.991206, 6.4018526)
 position = Vector2(91500, 3730)
 scale = Vector2(4.991206, 6.4018526)
 
+[node name="LavaBackground10" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+position = Vector2(86410, 3680)
+scale = Vector2(4.991206, 6.4018526)
+
 [node name="LavaBackground4" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
 position = Vector2(96590, 3750)
 scale = Vector2(4.991206, 6.4018526)
@@ -325,14 +341,44 @@ position = Vector2(101689.99, 3770)
 scale = Vector2(4.991206, 6.4018526)
 
 [node name="Plank" type="Sprite2D" parent="GameObjects"]
-position = Vector2(96643.81, -143.27905)
+position = Vector2(94100.14, -143.27916)
 rotation = 1.5707964
-scale = Vector2(4.866404, 15.017609)
+scale = Vector2(4.866404, 19.985714)
 texture = ExtResource("11_4oxwn")
 
 [node name="MetalFloor" type="Sprite2D" parent="GameObjects"]
 position = Vector2(565.0007, 0.000497818)
 scale = Vector2(8.974608, 13.73047)
+texture = ExtResource("12_orgcr")
+
+[node name="MetalFloor2" type="Sprite2D" parent="GameObjects"]
+z_index = -100
+position = Vector2(51850, -95.000305)
+scale = Vector2(8.974608, 14.736327)
+texture = ExtResource("12_orgcr")
+
+[node name="MetalFloor3" type="Sprite2D" parent="GameObjects"]
+z_index = -100
+position = Vector2(60480, -190.0003)
+scale = Vector2(8.974608, 14.736327)
+texture = ExtResource("12_orgcr")
+
+[node name="MetalFloor4" type="Sprite2D" parent="GameObjects"]
+z_index = -100
+position = Vector2(69440, -260.0003)
+scale = Vector2(8.974608, 14.736327)
+texture = ExtResource("12_orgcr")
+
+[node name="MetalFloor5" type="Sprite2D" parent="GameObjects"]
+z_index = -100
+position = Vector2(78220, -210.0003)
+scale = Vector2(8.974608, 14.736327)
+texture = ExtResource("12_orgcr")
+
+[node name="MetalFloor6" type="Sprite2D" parent="GameObjects"]
+z_index = -100
+position = Vector2(85040, -260.0003)
+scale = Vector2(8.974608, 14.736327)
 texture = ExtResource("12_orgcr")
 
 [node name="Water" type="Sprite2D" parent="GameObjects"]
