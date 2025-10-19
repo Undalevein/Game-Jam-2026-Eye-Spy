@@ -236,19 +236,9 @@ position = Vector2(-2179.9998, 6859.9995)
 rotation = 0.052359883
 scale = Vector2(181.39, 181.39)
 
-[node name="crate_large4" parent="GameObjects/Level1" instance=ExtResource("7_3yc6a")]
-position = Vector2(24100.002, -710.00024)
-rotation = 1.4137167
-scale = Vector2(181.39, 181.39)
-
 [node name="crate_large5" parent="GameObjects/Level1" instance=ExtResource("7_3yc6a")]
 position = Vector2(33890, 6730)
 rotation = -0.08726646
-scale = Vector2(181.39, 181.39)
-
-[node name="crate_large7" parent="GameObjects/Level1" instance=ExtResource("7_3yc6a")]
-position = Vector2(41760, 7070)
-rotation = 0.05235988
 scale = Vector2(181.39, 181.39)
 
 [node name="crate_large8" parent="GameObjects/Level1" instance=ExtResource("7_3yc6a")]
@@ -281,6 +271,11 @@ position = Vector2(33750, -3000)
 rotation = -3.1904619
 scale = Vector2(141.965, 141.965)
 
+[node name="crate_medium10" parent="GameObjects/Level1" instance=ExtResource("8_wo0g0")]
+position = Vector2(41590.004, 7030)
+rotation = -3.1154127
+scale = Vector2(245, 245)
+
 [node name="crate_medium7" parent="GameObjects/Level1" instance=ExtResource("8_wo0g0")]
 position = Vector2(55460.004, 7759.999)
 rotation = -3.1904619
@@ -290,6 +285,11 @@ scale = Vector2(141.965, 141.965)
 position = Vector2(25090.002, 5450)
 rotation = -1.5402701
 scale = Vector2(141.965, 141.965)
+
+[node name="crate_medium9" parent="GameObjects/Level1" instance=ExtResource("8_wo0g0")]
+position = Vector2(24020, -669.99976)
+rotation = -1.7366027
+scale = Vector2(245, 245)
 
 [node name="crate_medium8" parent="GameObjects/Level1" instance=ExtResource("8_wo0g0")]
 position = Vector2(15380, 6820)
@@ -316,91 +316,91 @@ scale = Vector2(141.965, 141.965)
 [node name="office_chair" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(68340, -2090.0012)
 rotation = -0.32463124
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair2" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(72569.99, 630.0011)
 rotation = 0.19373155
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair3" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(70370, 3970.0005)
 rotation = -0.064577185
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair4" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(75330, 6560.001)
 rotation = 0.19373155
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair5" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(77880.01, -1700.001)
 rotation = 0.064577185
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair6" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(83299.99, 3070.0005)
 rotation = 0.064577185
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair7" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(87060, -2530.0002)
 rotation = -0.38920844
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair8" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(94770, 579.99976)
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair9" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(91460, 4580)
 rotation = 0.25830874
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair10" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(96080, 7810)
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair12" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(91510, -2120.0022)
 rotation = -0.51836276
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair13" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(101790.01, 1010.00024)
 rotation = -0.26005405
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair16" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(104950, -2620.0002)
 rotation = 0.064577185
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair17" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(107699.99, 2989.997)
 rotation = 0.3228859
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair14" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(97599.99, 3690)
 rotation = 0.064577185
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair15" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(103300, 6029.9985)
 rotation = -0.4537856
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="office_chair11" parent="GameObjects/Level2" instance=ExtResource("9_wo0g0")]
 position = Vector2(97900, -2420)
-scale = Vector2(65, 65)
+scale = Vector2(95, 95)
 
 [node name="guard_moving" parent="GameObjects/Level2" instance=ExtResource("10_ki0lg")]
-position = Vector2(79050, 7880)
+position = Vector2(80320, 90.00195)
 scale = Vector2(28, 28)
 
 [node name="guard_moving2" parent="GameObjects/Level2" instance=ExtResource("10_ki0lg")]
-position = Vector2(87060, 2710.0002)
+position = Vector2(87630, 7830.001)
 scale = Vector2(28, 28)
 
 [node name="Level3" type="Node2D" parent="GameObjects"]
