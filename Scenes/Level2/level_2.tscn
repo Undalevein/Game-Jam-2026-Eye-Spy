@@ -280,14 +280,6 @@ scale = Vector2(95, 95)
 position = Vector2(97900, -2420)
 scale = Vector2(95, 95)
 
-[node name="guard_moving" parent="GameObjects/Level2" instance=ExtResource("10_ki0lg")]
-position = Vector2(80320, 90.00195)
-scale = Vector2(28, 28)
-
-[node name="guard_moving2" parent="GameObjects/Level2" instance=ExtResource("10_ki0lg")]
-position = Vector2(87630, 7830.001)
-scale = Vector2(28, 28)
-
 [node name="Level3" type="Node2D" parent="GameObjects"]
 
 [node name="crate_large2" parent="GameObjects/Level3" instance=ExtResource("7_3yc6a")]
@@ -308,18 +300,6 @@ scale = Vector2(190, 190)
 [node name="office_chair" parent="GameObjects/Level3" instance=ExtResource("9_wo0g0")]
 position = Vector2(140739.98, -1570)
 scale = Vector2(60, 60)
-
-[node name="guard_moving" parent="GameObjects/Level3" instance=ExtResource("10_ki0lg")]
-position = Vector2(137180, 370)
-scale = Vector2(28, 28)
-
-[node name="guard_moving2" parent="GameObjects/Level3" instance=ExtResource("10_ki0lg")]
-position = Vector2(127779.99, 8279.999)
-scale = Vector2(28, 28)
-
-[node name="guard_360" parent="GameObjects/Level3" instance=ExtResource("10_ki0lg")]
-position = Vector2(135940, 7539.9995)
-scale = Vector2(28, 28)
 
 [node name="crate_medium" parent="GameObjects/Level3" instance=ExtResource("8_wo0g0")]
 position = Vector2(121299.984, -1870)
@@ -698,6 +678,34 @@ position = Vector2(3484.1826, 449.8379)
 scale = Vector2(0.110444024, 0.2510488)
 texture = ExtResource("13_ymj0i")
 metadata/_edit_lock_ = true
+
+[node name="Guards" type="Node2D" parent="GameObjects"]
+position = Vector2(-72489.99, -24759.996)
+scale = Vector2(65.74283, 60.09942)
+
+[node name="guard_moving" parent="GameObjects/Guards" instance=ExtResource("10_ki0lg")]
+position = Vector2(2324.3599, 413.4815)
+scale = Vector2(0.42590192, 0.46589467)
+
+[node name="guard_moving3" parent="GameObjects/Guards" instance=ExtResource("10_ki0lg")]
+position = Vector2(1646.8715, 437.109)
+scale = Vector2(0.42590192, 0.46589467)
+
+[node name="guard_moving2" parent="GameObjects/Guards" instance=ExtResource("10_ki0lg")]
+position = Vector2(2435.5505, 542.26807)
+scale = Vector2(0.42590192, 0.46589467)
+
+[node name="guard_moving4" parent="GameObjects/Guards" instance=ExtResource("10_ki0lg")]
+position = Vector2(3189.245, 418.14044)
+scale = Vector2(0.42590192, 0.46589467)
+
+[node name="guard_moving5" parent="GameObjects/Guards" instance=ExtResource("10_ki0lg")]
+position = Vector2(3046.2634, 549.7557)
+scale = Vector2(0.42590192, 0.46589467)
+
+[node name="guard_360" parent="GameObjects/Guards" instance=ExtResource("10_ki0lg")]
+position = Vector2(3170.3833, 537.44275)
+scale = Vector2(0.42590192, 0.46589467)
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
