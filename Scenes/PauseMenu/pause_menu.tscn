@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.08627451, 0.09411765, 0.08627451, 1)
+color = Color(0.43529412, 0.72156864, 0.94509804, 0.5647059)
 metadata/_edit_lock_ = true
 
 [node name="PauseLabel" type="Label" parent="."]

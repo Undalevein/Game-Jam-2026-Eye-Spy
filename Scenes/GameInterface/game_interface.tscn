@@ -1,14 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://xcbhh04btsa7"]
+[gd_scene load_steps=2 format=3 uid="uid://xcbhh04btsa7"]
 
-[ext_resource type="FontFile" uid="uid://cr6golww4ofp8" path="res://Fonts/novem___.ttf" id="1_pcnj6"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_p428j"]
-font = ExtResource("1_pcnj6")
-font_size = 24
-
-[sub_resource type="LabelSettings" id="LabelSettings_pcnj6"]
-font = ExtResource("1_pcnj6")
-font_size = 40
+[ext_resource type="Script" uid="uid://bcq85jgb32j7c" path="res://Scenes/GameInterface/game_interface.gd" id="1_ej7f1"]
 
 [node name="GameInterface" type="Control"]
 layout_mode = 3
@@ -17,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ej7f1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -32,26 +25,48 @@ grow_horizontal = 0
 grow_vertical = 2
 color = Color(0.058034733, 0.2151418, 0.17079514, 1)
 
-[node name="PerilDialogue" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 52.0
-offset_top = -443.0
-offset_right = 479.0
-offset_bottom = 443.0
-grow_vertical = 2
-text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
-label_settings = SubResource("LabelSettings_p428j")
-autowrap_mode = 3
-
-[node name="CameraNumberLabel" type="Label" parent="."]
+[node name="EscapeButton" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = 228.0
-offset_top = 118.0
-offset_right = 453.0
-offset_bottom = 158.0
-text = "Camera #"
-label_settings = SubResource("LabelSettings_pcnj6")
-autowrap_mode = 3
+offset_left = 568.0
+offset_top = 481.0
+offset_right = 633.39136
+offset_bottom = 545.0
+text = "Menu"
+
+[node name="StraightButton" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 579.0
+offset_right = 620.0
+offset_bottom = 729.0
+text = "GO STRAIGHT"
+
+[node name="TurnLeftButton" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 744.0
+offset_right = 622.0
+offset_bottom = 894.0
+text = "TURN LEFT"
+
+[node name="TurnRightButton" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 911.0
+offset_right = 630.0
+offset_bottom = 1061.0
+text = "TURN RIGHT"
+
+[node name="StopButton" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 1100.0
+offset_right = 529.0
+offset_bottom = 1417.0
+text = "STOP"
+
+[connection signal="pressed" from="ColorRect/EscapeButton" to="." method="_on_escape_button_pressed"]
+[connection signal="pressed" from="ColorRect/StraightButton" to="." method="_on_straight_button_pressed"]
+[connection signal="pressed" from="ColorRect/TurnLeftButton" to="." method="_on_turn_left_button_pressed"]
+[connection signal="pressed" from="ColorRect/TurnRightButton" to="." method="_on_turn_right_button_pressed"]
+[connection signal="pressed" from="ColorRect/StopButton" to="." method="_on_stop_button_pressed"]
