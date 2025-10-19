@@ -82,3 +82,4 @@ func _on_pause_menu_return_to_menu() -> void:
 
 func _on_game_interface_escape() -> void:
 	pause_menu.visible = not pause_menu.visible
+# Hi
