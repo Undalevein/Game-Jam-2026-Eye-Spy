@@ -10,10 +10,13 @@ func _on_main_menu_start_game() -> void:
 	match current_level:
 		1: 
 			$Levels/Level1.visible = true
+			$Levels/Level1.start()
 		2:
 			$Levels/Level2.visible = true
+			$Levels/Level2.start()
 		3:
 			$Levels/Level3.visible = true
+			$Levels/Level3.start()
 		_:
 			play_win()
 

@@ -3,16 +3,20 @@ extends Node2D
 signal return_to_menu
 signal level_completed
 
-func _on_visibility_changed() -> void:
-	# Check if we are starting the game.
-	if visible:
-		$UI/GameInterface.visible = true 
-		get_tree().paused = false
+var playing_level = false
+
+func start() -> void:
+	$UI/GameInterface.visible = true 
+	get_tree().paused = false
+	playing_level = true
+	$Player.turn_on_camera()
 
 func _process(delta: float):
 	pass
 		
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
+	if not playing_level:
+		return
 	if Input.is_action_just_pressed("Escape"):
 		$UI/PauseMenu.visible = not $UI/PauseMenu.visible
 		get_tree().paused = not get_tree().paused
@@ -44,4 +48,6 @@ func _on_pause_menu_return_to_menu() -> void:
 func close_level() -> void:
 	$UI/GameInterface.visible = false
 	$UI/PauseMenu.visible = false
+	$Player.turn_off_camera()
 	visible = false
+	playing_level = false

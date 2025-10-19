@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://duppv6d15gjkk"
+path="res://.godot/imported/LAVA AMBIENCE BITCRUSH.wav-82eb529fac4d344f48ea419b0383c049.sample"
+
+[deps]
+
+source_file="res://Sound/LAVA AMBIENCE BITCRUSH.wav"
+dest_files=["res://.godot/imported/LAVA AMBIENCE BITCRUSH.wav-82eb529fac4d344f48ea419b0383c049.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

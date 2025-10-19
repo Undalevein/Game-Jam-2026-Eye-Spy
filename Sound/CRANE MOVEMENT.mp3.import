@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bfnx60og7ove0"
+path="res://.godot/imported/CRANE MOVEMENT.mp3-16481a081fa314c66d14e803c7248ac5.mp3str"
+
+[deps]
+
+source_file="res://Sound/CRANE MOVEMENT.mp3"
+dest_files=["res://.godot/imported/CRANE MOVEMENT.mp3-16481a081fa314c66d14e803c7248ac5.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

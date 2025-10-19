@@ -121,7 +121,6 @@ visible = false
 [node name="PauseMenu" parent="UI" instance=ExtResource("4_0q28u")]
 visible = false
 
-[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="escape" from="UI/GameInterface" to="." method="_on_game_interface_escape"]
 [connection signal="rotate_left" from="UI/GameInterface" to="." method="_on_game_interface_rotate_left"]
 [connection signal="rotate_right" from="UI/GameInterface" to="." method="_on_game_interface_rotate_right"]

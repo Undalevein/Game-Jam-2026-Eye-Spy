@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dg3k17hysq1y6"
+path="res://.godot/imported/Robot activating sound.mp3-6d2525dab633103a52d05c2fbcc76502.mp3str"
+
+[deps]
+
+source_file="res://Sound/Robot activating sound.mp3"
+dest_files=["res://.godot/imported/Robot activating sound.mp3-6d2525dab633103a52d05c2fbcc76502.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
