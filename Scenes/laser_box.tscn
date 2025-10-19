@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhwnbjrgtca6v"]
+
+[ext_resource type="Texture2D" uid="uid://dd4p3mj14w8tt" path="res://Sprites/Laser Start.png" id="1_qbspo"]
+
+[node name="LaserBox" type="StaticBody2D"]
+
+[node name="LaserStart" type="Sprite2D" parent="."]
+position = Vector2(-2.0000002, -7.000001)
+rotation = 1.5707964
+scale = Vector2(0.019660821, 0.019660821)
+texture = ExtResource("1_qbspo")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(5, 3, -6, 3, -6, 1, -4, 1, -4, -3, -2, -3, -2, -4, -1, -4, -1, -17, 0, -17, 0, -4, 1, -4, 1, -3, 4, -3, 3, 1, 5, 1)
