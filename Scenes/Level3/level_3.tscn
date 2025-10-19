@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cq8tcw283lqtk"]
+[gd_scene load_steps=17 format=3 uid="uid://cq8tcw283lqtk"]
 
 [ext_resource type="Script" uid="uid://ciscmsu263r4g" path="res://Scenes/Level3/level_3.gd" id="1_ngiah"]
 [ext_resource type="PackedScene" uid="uid://bkiom600l0aa6" path="res://Scenes/Player/player.tscn" id="2_mmvth"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://c143oxi3rakq1" path="res://Scenes/crate_large.tscn" id="9_rskgy"]
 [ext_resource type="PackedScene" uid="uid://cckye4ixgsbsm" path="res://Scenes/Level3/lava_background.tscn" id="10_aht15"]
 [ext_resource type="Texture2D" uid="uid://d0tpj21o16u3e" path="res://Sprites/Plank.png" id="11_4oxwn"]
+[ext_resource type="Texture2D" uid="uid://dy22ij0t1jqg0" path="res://Sprites/Metal Floor.png" id="12_orgcr"]
+[ext_resource type="Texture2D" uid="uid://by2qa5hbn00r4" path="res://Sprites/Water.png" id="13_lviwr"]
+[ext_resource type="Texture2D" uid="uid://cryqdstq3nvpw" path="res://Sprites/DarkCrate.png" id="16_8rser"]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_ngiah")
@@ -326,6 +329,65 @@ position = Vector2(96643.81, -143.27905)
 rotation = 1.5707964
 scale = Vector2(4.866404, 15.017609)
 texture = ExtResource("11_4oxwn")
+
+[node name="MetalFloor" type="Sprite2D" parent="GameObjects"]
+position = Vector2(565.0007, 0.000497818)
+scale = Vector2(8.974608, 13.73047)
+texture = ExtResource("12_orgcr")
+
+[node name="Water" type="Sprite2D" parent="GameObjects"]
+position = Vector2(12219.999, -50.000004)
+scale = Vector2(13.671874, 13.671874)
+texture = ExtResource("13_lviwr")
+
+[node name="Water2" type="Sprite2D" parent="GameObjects"]
+position = Vector2(26140, 5.0007935)
+scale = Vector2(13.671874, 13.740235)
+texture = ExtResource("13_lviwr")
+
+[node name="Water3" type="Sprite2D" parent="GameObjects"]
+position = Vector2(40130, -20.000534)
+scale = Vector2(13.671874, 13.7890625)
+texture = ExtResource("13_lviwr")
+
+[node name="Plank2" type="Sprite2D" parent="GameObjects"]
+position = Vector2(10510, -19.99997)
+rotation = -4.728097
+scale = Vector2(6.313656, 10.54777)
+texture = ExtResource("11_4oxwn")
+
+[node name="Plank3" type="Sprite2D" parent="GameObjects"]
+position = Vector2(24290.002, -1710.0005)
+rotation = -5.1173053
+scale = Vector2(6.313656, 10.54777)
+texture = ExtResource("11_4oxwn")
+
+[node name="Plank4" type="Sprite2D" parent="GameObjects"]
+position = Vector2(34730.004, 670)
+rotation = -3.8955748
+scale = Vector2(6.313656, 10.54777)
+texture = ExtResource("11_4oxwn")
+
+[node name="Plank5" type="Sprite2D" parent="GameObjects"]
+position = Vector2(43060, 2490.0005)
+rotation = -5.2551866
+scale = Vector2(6.313656, 10.54777)
+texture = ExtResource("11_4oxwn")
+
+[node name="DarkCrate" type="Sprite2D" parent="GameObjects"]
+position = Vector2(18269.998, -50)
+scale = Vector2(4.990234, 4.990234)
+texture = ExtResource("16_8rser")
+
+[node name="DarkCrate2" type="Sprite2D" parent="GameObjects"]
+position = Vector2(31139.992, -2800)
+scale = Vector2(4.990234, 4.990234)
+texture = ExtResource("16_8rser")
+
+[node name="DarkCrate3" type="Sprite2D" parent="GameObjects"]
+position = Vector2(40089.996, 3599.9995)
+scale = Vector2(4.990234, 4.990234)
+texture = ExtResource("16_8rser")
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
