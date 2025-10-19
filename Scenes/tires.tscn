@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbu4038rf5v2q"]
+
+[ext_resource type="Texture2D" uid="uid://dd5f8s7ymxho8" path="res://Sprites/Tires.png" id="1_rapvu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rt20c"]
+radius = 89.02247
+
+[node name="Tires" type="StaticBody2D"]
+
+[node name="TiresSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_rapvu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rt20c")

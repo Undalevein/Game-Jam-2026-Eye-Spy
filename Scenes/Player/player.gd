@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal die
+
 enum Rotations {LEFT, RIGHT, NONE}
 
 @export
@@ -15,8 +17,8 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	if walking:
-		var velocity = Vector2(0, -1).rotated(rotation) * walking_speed
-		move_and_collide(velocity * delta)
+		var velocity_stuff = Vector2(0, -1).rotated(rotation) * walking_speed
+		move_and_collide(velocity_stuff * delta)
 	match rotation_direction:
 		Rotations.LEFT:
 			rotation -= rotate_speed * delta
@@ -41,3 +43,10 @@ func turn_on_camera() -> void:
 
 func turn_off_camera() -> void:
 	$Camera2D.enabled = false
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print("HELLO!")
+	walking = false
+	rotation_direction = Rotations.NONE
+	if area.is_in_group("Hazard"):
+		die.emit()

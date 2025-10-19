@@ -4,17 +4,22 @@ signal return_to_menu
 signal level_completed
 
 var playing_level = false
+@onready
+var initial_player_position = $Player.position
+@onready
+var initial_player_rotation = $Player.rotation
 
 func start() -> void:
 	$UI/GameInterface.visible = true 
 	get_tree().paused = false
 	playing_level = true
 	$Player.turn_on_camera()
+	$Player/Audio/ConstructionAmbiance.playing = true
 
-func _process(delta: float):
+func _process(_delta: float):
 	pass
 		
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if not playing_level:
 		return
 	if Input.is_action_just_pressed("Escape"):
@@ -27,6 +32,7 @@ func _on_game_interface_escape() -> void:
 
 func _on_game_interface_walk_forward() -> void:
 	$Player.walk_forward()
+	$Player/Audio/Footsteps.playing = true
 
 func _on_game_interface_rotate_left() -> void:
 	$Player.rotate_left()
@@ -36,6 +42,7 @@ func _on_game_interface_rotate_right() -> void:
 
 func _on_game_interface_stop() -> void:
 	$Player.stop()
+	$Player/Audio/Footsteps.playing = false
 
 func _on_pause_menu_continue_game() -> void:
 	$UI/PauseMenu.visible = false
@@ -51,3 +58,10 @@ func close_level() -> void:
 	$Player.turn_off_camera()
 	visible = false
 	playing_level = false
+
+func _on_player_die() -> void:
+	$Player.position = initial_player_position
+	$Player.rotation = initial_player_rotation
+
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	level_completed.emit()

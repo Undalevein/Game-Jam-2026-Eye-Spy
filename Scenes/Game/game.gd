@@ -31,3 +31,6 @@ func _on_level_2_return_to_menu() -> void:
 
 func _on_level_3_return_to_menu() -> void:
 	$MainUI.visible = true
+
+func _on_level_1_level_completed() -> void:
+	pass # Replace with function body.

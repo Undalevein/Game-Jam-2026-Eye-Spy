@@ -4,6 +4,10 @@ signal return_to_menu
 signal level_completed
 
 var playing_level = false
+@onready
+var initial_player_position = $Player.position
+@onready
+var initial_player_rotation = $Player.rotation
 
 func start() -> void:
 	$UI/GameInterface.visible = true 
@@ -32,11 +36,9 @@ func _on_game_interface_walk_forward() -> void:
 
 func _on_game_interface_rotate_left() -> void:
 	$Player.rotate_left()
-	$Player/Audio/Footsteps.playing = false
 
 func _on_game_interface_rotate_right() -> void:
 	$Player.rotate_right()
-	$Player/Audio/Footsteps.playing = false
 
 func _on_game_interface_stop() -> void:
 	$Player.stop()

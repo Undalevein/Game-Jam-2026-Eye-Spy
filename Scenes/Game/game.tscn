@@ -9,7 +9,6 @@
 [node name="Game" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_qikps")
-current_level = 2
 metadata/_edit_lock_ = true
 
 [node name="MainUI" type="CanvasLayer" parent="."]
@@ -31,6 +30,7 @@ visible = false
 position = Vector2(-8, 6310)
 
 [connection signal="start_game" from="MainUI/MainMenu" to="." method="_on_main_menu_start_game"]
+[connection signal="level_completed" from="Levels/Level1" to="." method="_on_level_1_level_completed"]
 [connection signal="return_to_menu" from="Levels/Level1" to="." method="_on_level_1_return_to_menu"]
 [connection signal="return_to_menu" from="Levels/Level2" to="." method="_on_level_2_return_to_menu"]
 [connection signal="return_to_menu" from="Levels/Level3" to="." method="_on_level_3_return_to_menu"]

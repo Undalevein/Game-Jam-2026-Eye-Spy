@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cry8s6k7fl8mo" path="res://Sprites/Goon.webp" id="1_p570l"]
 
-[node name="Area2D" type="Area2D"]
+[node name="Guard" type="Area2D" groups=["Hazard"]]
 
 [node name="MeshInstance2D" type="Sprite2D" parent="."]
 position = Vector2(0.99999994, -51.999996)

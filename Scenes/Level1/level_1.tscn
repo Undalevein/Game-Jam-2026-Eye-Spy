@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cg5wrwwahia15"]
+[gd_scene load_steps=12 format=3 uid="uid://cg5wrwwahia15"]
 
 [ext_resource type="Script" uid="uid://ghwp6qghjmgb" path="res://Scenes/Level1/level_1.gd" id="1_pylp5"]
 [ext_resource type="PackedScene" uid="uid://bkiom600l0aa6" path="res://Scenes/Player/player.tscn" id="2_iyse3"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cu4nq7khuo13p" path="res://Scenes/PauseMenu/pause_menu.tscn" id="4_0q28u"]
 [ext_resource type="PackedScene" uid="uid://cxc4xnt4ygwdb" path="res://Scenes/crate_medium.tscn" id="4_cirk1"]
 [ext_resource type="PackedScene" uid="uid://bo8uw4okbm14n" path="res://Scenes/guard.tscn" id="5_6bneh"]
+[ext_resource type="PackedScene" uid="uid://cbu4038rf5v2q" path="res://Scenes/tires.tscn" id="5_s0xjy"]
+[ext_resource type="AudioStream" uid="uid://cmsg5po2tyllr" path="res://Sound/construction-site-49508.mp3" id="6_6bneh"]
+[ext_resource type="AudioStream" uid="uid://u3ooyk75abg4" path="res://Sound/DIRT FOOTSTEPS.mp3" id="6_cirk1"]
+[ext_resource type="PackedScene" uid="uid://d72tpjlsm3m" path="res://Scenes/level_complete_trigger.tscn" id="9_ajn4s"]
 
 [node name="Level1" type="Node2D"]
 process_mode = 3
@@ -15,7 +19,22 @@ script = ExtResource("1_pylp5")
 [node name="Player" parent="." instance=ExtResource("2_iyse3")]
 process_mode = 1
 position = Vector2(635, 734)
+rotation = 1.5707964
 walking_speed = 300.0
+
+[node name="Audio" type="Node2D" parent="Player"]
+rotation = -1.5707964
+scale = Vector2(99.99999, 99.99999)
+
+[node name="ConstructionAmbiance" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.99999994, 0.99999994)
+stream = ExtResource("6_6bneh")
+volume_db = -21.98
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="Player/Audio"]
+stream = ExtResource("6_cirk1")
+volume_db = -14.877
+pitch_scale = 0.97
 
 [node name="GameObjects" type="Node2D" parent="."]
 process_mode = 1
@@ -23,6 +42,74 @@ scale = Vector2(10, 10)
 
 [node name="first_level" type="Node2D" parent="GameObjects"]
 scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Tires" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(96.10001, 46)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires16" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(60.9, 120.30001)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires17" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(62.700016, 28.000004)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires11" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(146.20001, 25)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires12" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(143.40001, 125.90002)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires15" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(229.70001, 24.700005)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires13" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(234.20003, 121.400024)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires14" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(326.70004, 70.70001)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires2" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(190.80002, 102.00001)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires3" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(187.30002, 46.300003)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires4" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(99.20001, 102.50001)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires5" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(145.20001, 70.00001)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires8" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(426.90002, 34.9)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires9" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(426.90002, 34.9)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires6" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(281.40002, 99.10001)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires7" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(282.10004, 50.800003)
+scale = Vector2(0.12, 0.12)
+
+[node name="Tires10" parent="GameObjects/first_level" instance=ExtResource("5_s0xjy")]
+position = Vector2(238.70001, 77.100006)
+scale = Vector2(0.12, 0.12)
 
 [node name="first_level_border" type="Node2D" parent="GameObjects/first_level"]
 position = Vector2(36.000004, 0)
@@ -101,17 +188,14 @@ rotation = -0.6632251
 scale = Vector2(2, 2)
 
 [node name="crate_medium2" parent="GameObjects/second_level" instance=ExtResource("4_cirk1")]
-position = Vector2(437.09998, 113.700005)
+position = Vector2(439.3, 109.60001)
+rotation = 0.20943952
 scale = Vector2(2, 2)
 
 [node name="crate_medium3" parent="GameObjects/second_level" instance=ExtResource("4_cirk1")]
-position = Vector2(494.50006, 41.000004)
+position = Vector2(485.7, 41.299995)
+rotation = -0.10471976
 scale = Vector2(2.5, 2.5)
-
-[node name="guard" parent="GameObjects/second_level" instance=ExtResource("5_6bneh")]
-position = Vector2(511, 82.59999)
-rotation = -2.7209682
-scale = Vector2(0.3, 0.3)
 
 [node name="third_level" type="Node2D" parent="GameObjects"]
 
@@ -170,11 +254,12 @@ position = Vector2(482.6001, 139.70003)
 position = Vector2(481.20007, 6.9000015)
 
 [node name="crate_medium" parent="GameObjects/third_level" instance=ExtResource("4_cirk1")]
-position = Vector2(624, 36.800003)
+position = Vector2(633.50006, 53.5)
+rotation = -0.06981317
 scale = Vector2(2, 2)
 
 [node name="crate_medium2" parent="GameObjects/third_level" instance=ExtResource("4_cirk1")]
-position = Vector2(654.8, 104.20001)
+position = Vector2(651.39996, 105.3)
 scale = Vector2(3, 3)
 
 [node name="crate_medium3" parent="GameObjects/third_level" instance=ExtResource("4_cirk1")]
@@ -195,6 +280,10 @@ position = Vector2(733.5, 24.799997)
 rotation = 1.7453293
 scale = Vector2(0.3, 0.3)
 
+[node name="LevelCompleteTrigger" parent="." instance=ExtResource("9_ajn4s")]
+position = Vector2(10297, 754)
+scale = Vector2(9.999998, 9.999998)
+
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
 
@@ -204,6 +293,12 @@ visible = false
 [node name="PauseMenu" parent="UI" instance=ExtResource("4_0q28u")]
 visible = false
 
+[node name="Area2D" parent="." instance=ExtResource("5_6bneh")]
+position = Vector2(5582.0005, 891)
+rotation = -0.55850536
+scale = Vector2(3.18, 3.18)
+
+[connection signal="die" from="Player" to="." method="_on_player_die"]
 [connection signal="escape" from="UI/GameInterface" to="." method="_on_game_interface_escape"]
 [connection signal="rotate_left" from="UI/GameInterface" to="." method="_on_game_interface_rotate_left"]
 [connection signal="rotate_right" from="UI/GameInterface" to="." method="_on_game_interface_rotate_right"]
@@ -211,3 +306,4 @@ visible = false
 [connection signal="walk_forward" from="UI/GameInterface" to="." method="_on_game_interface_walk_forward"]
 [connection signal="continue_game" from="UI/PauseMenu" to="." method="_on_pause_menu_continue_game"]
 [connection signal="return_to_menu" from="UI/PauseMenu" to="." method="_on_pause_menu_return_to_menu"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

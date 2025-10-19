@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkiom600l0aa6"]
+[gd_scene load_steps=5 format=3 uid="uid://bkiom600l0aa6"]
 
 [ext_resource type="Script" uid="uid://2bab3ovpo4hl" path="res://Scenes/Player/player.gd" id="1_uvnfx"]
 [ext_resource type="Texture2D" uid="uid://bna7bcaspqihr" path="res://Sprites/PlayerTemp.png" id="2_a3d8c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a3d8c"]
 radius = 582.0034
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xpcdj"]
+radius = 521.5363
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 scale = Vector2(0.1, 0.1)
@@ -22,3 +25,12 @@ texture = ExtResource("2_a3d8c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a3d8c")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.9999998, 0.9999998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_xpcdj")
+debug_color = Color(0.71572906, 0.37006703, 0.794042, 0.41960785)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
