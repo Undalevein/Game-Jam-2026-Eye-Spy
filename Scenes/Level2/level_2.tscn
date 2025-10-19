@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://pci8y50bj2mv"]
+[gd_scene load_steps=15 format=3 uid="uid://pci8y50bj2mv"]
 
 [ext_resource type="Script" uid="uid://clv6yr87povhf" path="res://Scenes/Level2/level_2.gd" id="1_hp1rf"]
 [ext_resource type="PackedScene" uid="uid://bkiom600l0aa6" path="res://Scenes/Player/player.tscn" id="2_dbdtm"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dcbrm1u85lrkq" path="res://Scenes/office_chair.tscn" id="9_wo0g0"]
 [ext_resource type="PackedScene" uid="uid://bo8uw4okbm14n" path="res://Scenes/guard.tscn" id="10_ki0lg"]
 [ext_resource type="PackedScene" uid="uid://dhqgwfunu3r6r" path="res://Scenes/crate_small.tscn" id="11_7jvws"]
+[ext_resource type="PackedScene" uid="uid://b41p4j5kt61jr" path="res://Scenes/NoticeScreen2/notice_screen2.tscn" id="14_r24tj"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_hp1rf")
@@ -452,6 +453,9 @@ process_mode = 3
 visible = false
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("4_0u6qp")]
+visible = false
+
+[node name="NoticeScreen2" parent="UI" instance=ExtResource("14_r24tj")]
 visible = false
 
 [connection signal="escape" from="UI/GameInterface" to="." method="_on_game_interface_escape"]

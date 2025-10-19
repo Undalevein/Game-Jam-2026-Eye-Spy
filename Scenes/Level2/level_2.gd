@@ -10,6 +10,7 @@ var initial_player_position = $Player.position
 var initial_player_rotation = $Player.rotation
 
 func start() -> void:
+	$UI/NoticeScreen2.visible = true
 	$UI/GameInterface.visible = true 
 	get_tree().paused = false
 	playing_level = true

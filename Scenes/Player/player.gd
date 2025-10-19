@@ -14,6 +14,7 @@ var rotation_direction = Rotations.NONE
 
 func _ready():
 	turn_off_camera()
+	$AnimatedSprite2D.play("default")
 
 func _physics_process(delta: float) -> void:
 	if walking:

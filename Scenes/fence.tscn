@@ -1,16 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://dng6dd8hxc7xm"]
 
+[ext_resource type="Texture2D" uid="uid://dh3db264kdbr8" path="res://Sprites/fence.png" id="1_on2qe"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qd4e"]
 size = Vector2(64, 6)
 
-[sub_resource type="QuadMesh" id="QuadMesh_hsy3x"]
-
 [node name="fence" type="StaticBody2D"]
+
+[node name="Fence" type="Sprite2D" parent="."]
+position = Vector2(-0.15130737, 0.089526266)
+rotation = 1.5707964
+scale = Vector2(0.09905695, 0.062379345)
+texture = ExtResource("1_on2qe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8qd4e")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(1.9073486e-06, 2.3841858e-07)
-scale = Vector2(64.00001, 6.0000005)
-mesh = SubResource("QuadMesh_hsy3x")
