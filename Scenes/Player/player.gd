@@ -25,14 +25,11 @@ func _physics_process(delta: float) -> void:
 
 func walk_forward() -> void:
 	walking = true
-	rotation_direction = Rotations.NONE
 
 func rotate_left() -> void:
-	walking = false
 	rotation_direction = Rotations.LEFT
 
 func rotate_right() -> void:
-	walking = false
 	rotation_direction = Rotations.RIGHT
 
 func stop() -> void:

@@ -35,34 +35,34 @@ text = "Menu"
 
 [node name="StraightButton" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 579.0
-offset_right = 620.0
-offset_bottom = 729.0
+offset_left = 46.0
+offset_top = 589.0
+offset_right = 629.0
+offset_bottom = 739.0
 text = "GO STRAIGHT"
 
 [node name="TurnLeftButton" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = 39.0
-offset_top = 744.0
-offset_right = 622.0
-offset_bottom = 894.0
+offset_left = 46.0
+offset_top = 760.0
+offset_right = 309.0
+offset_bottom = 910.0
 text = "TURN LEFT"
 
 [node name="TurnRightButton" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 911.0
-offset_right = 630.0
-offset_bottom = 1061.0
+offset_left = 361.0
+offset_top = 761.0
+offset_right = 622.0
+offset_bottom = 911.0
 text = "TURN RIGHT"
 
 [node name="StopButton" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = 169.0
-offset_top = 1100.0
-offset_right = 529.0
-offset_bottom = 1417.0
+offset_left = 41.0
+offset_top = 940.0
+offset_right = 630.0
+offset_bottom = 1508.0
 text = "STOP"
 
 [connection signal="pressed" from="ColorRect/EscapeButton" to="." method="_on_escape_button_pressed"]
