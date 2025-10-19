@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://c143oxi3rakq1"]
 
+[ext_resource type="Texture2D" uid="uid://cl5xcp5n2urpj" path="res://Sprites/LightCrate.png" id="1_a5wfr"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vm8u4"]
 size = Vector2(20, 12)
-
-[sub_resource type="QuadMesh" id="QuadMesh_citvr"]
 
 [node name="crate_large" type="StaticBody2D"]
 
@@ -11,7 +11,7 @@ size = Vector2(20, 12)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_vm8u4")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(-2.3841858e-06, 4.7683716e-07)
-scale = Vector2(39.999996, 24)
-mesh = SubResource("QuadMesh_citvr")
+[node name="LightCrate" type="Sprite2D" parent="."]
+position = Vector2(0.25000066, 1.7763568e-15)
+scale = Vector2(0.044433594, 0.026611328)
+texture = ExtResource("1_a5wfr")

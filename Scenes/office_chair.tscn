@@ -1,15 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://dcbrm1u85lrkq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1kal"]
-size = Vector2(34, 20)
+[ext_resource type="Texture2D" uid="uid://bu2l4004iemxf" path="res://Sprites/steel chair.png" id="1_f674f"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_qlqds"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1kal"]
+size = Vector2(16, 20)
 
 [node name="office_chair" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_u1kal")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-scale = Vector2(34, 20)
-mesh = SubResource("QuadMesh_qlqds")
+[node name="SteelChair" type="Sprite2D" parent="."]
+rotation = 1.5707964
+scale = Vector2(0.033783548, 0.033783548)
+texture = ExtResource("1_f674f")
