@@ -110,6 +110,7 @@ scale = Vector2(2.5, 2.5)
 
 [node name="guard" parent="GameObjects/second_level" instance=ExtResource("5_6bneh")]
 position = Vector2(511, 82.59999)
+rotation = -2.7209682
 scale = Vector2(0.3, 0.3)
 
 [node name="third_level" type="Node2D" parent="GameObjects"]
@@ -183,6 +184,16 @@ scale = Vector2(2.5, 2.5)
 [node name="crate_medium4" parent="GameObjects/third_level" instance=ExtResource("4_cirk1")]
 position = Vector2(894.3001, 72.3)
 scale = Vector2(3.5, 3.5)
+
+[node name="guard" parent="GameObjects/third_level" instance=ExtResource("5_6bneh")]
+position = Vector2(939.10004, 118.9)
+rotation = -1.7453293
+scale = Vector2(0.3, 0.3)
+
+[node name="guard2" parent="GameObjects/third_level" instance=ExtResource("5_6bneh")]
+position = Vector2(733.5, 24.799997)
+rotation = 1.7453293
+scale = Vector2(0.3, 0.3)
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3

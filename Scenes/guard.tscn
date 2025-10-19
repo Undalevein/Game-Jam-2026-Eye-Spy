@@ -1,16 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo8uw4okbm14n"]
+[gd_scene load_steps=2 format=3 uid="uid://bo8uw4okbm14n"]
 
-[ext_resource type="Texture2D" uid="uid://bna7bcaspqihr" path="res://Sprites/PlayerTemp.png" id="1_opr0s"]
+[ext_resource type="Texture2D" uid="uid://cry8s6k7fl8mo" path="res://Sprites/Goon.webp" id="1_p570l"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_30cdx"]
-
-[node name="guard" type="StaticBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_30cdx")
+[node name="Area2D" type="Area2D"]
 
 [node name="MeshInstance2D" type="Sprite2D" parent="."]
-position = Vector2(9.536743e-07, -1.3709068e-06)
-scale = Vector2(0.034453057, 0.034453057)
-texture = ExtResource("1_opr0s")
+position = Vector2(0.99999994, -51.999996)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("1_p570l")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(13, -36, -27, -114, 31, -120, 19, -35, 22, -17, 20, 4, 15, 13, 8, 19, 0, 20, -6, 19, -12, 16, -15, 14, -18, 10, -20, 5, -21, 0, -20, -7, -18, -11, -15, -15, -10, -18, -5, -20, 0, -21, 6, -20, 12, -17, 15, -14, 14, -24, 15, -27)
