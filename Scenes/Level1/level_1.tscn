@@ -112,6 +112,78 @@ scale = Vector2(2.5, 2.5)
 position = Vector2(511, 82.59999)
 scale = Vector2(0.3, 0.3)
 
+[node name="third_level" type="Node2D" parent="GameObjects"]
+
+[node name="third_level_border" type="Node2D" parent="GameObjects/third_level"]
+position = Vector2(513, 0.7)
+scale = Vector2(0.9999998, 0.9999998)
+
+[node name="fence" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(67.600006, 7.1000004)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="fence3" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(67.600006, 139.5)
+scale = Vector2(0.99999976, 0.99999976)
+
+[node name="fence5" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(131.59999, 139.49998)
+
+[node name="fence6" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(131.40001, 7)
+
+[node name="fence7" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(195.4, 6.9999995)
+
+[node name="fence8" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(195.59999, 139.5)
+
+[node name="fence9" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(258.99997, 139.49998)
+
+[node name="fence10" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(259.1, 7.0000005)
+
+[node name="fence11" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(322.40012, 7.000001)
+
+[node name="fence12" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(322.30005, 139.60002)
+
+[node name="fence13" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(386.30005, 139.60004)
+
+[node name="fence14" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(385.80005, 6.900001)
+
+[node name="fence15" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(449.40005, 6.900001)
+
+[node name="fence16" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(450.30008, 139.60002)
+
+[node name="fence17" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(482.6001, 139.70003)
+
+[node name="fence18" parent="GameObjects/third_level/third_level_border" instance=ExtResource("3_ojcjo")]
+position = Vector2(481.20007, 6.9000015)
+
+[node name="crate_medium" parent="GameObjects/third_level" instance=ExtResource("4_cirk1")]
+position = Vector2(624, 36.800003)
+scale = Vector2(2, 2)
+
+[node name="crate_medium2" parent="GameObjects/third_level" instance=ExtResource("4_cirk1")]
+position = Vector2(654.8, 104.20001)
+scale = Vector2(3, 3)
+
+[node name="crate_medium3" parent="GameObjects/third_level" instance=ExtResource("4_cirk1")]
+position = Vector2(765.4, 70.200005)
+scale = Vector2(2.5, 2.5)
+
+[node name="crate_medium4" parent="GameObjects/third_level" instance=ExtResource("4_cirk1")]
+position = Vector2(894.3001, 72.3)
+scale = Vector2(3.5, 3.5)
+
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
 
