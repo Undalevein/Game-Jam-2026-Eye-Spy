@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://pci8y50bj2mv"]
+[gd_scene load_steps=14 format=3 uid="uid://pci8y50bj2mv"]
 
 [ext_resource type="Script" uid="uid://clv6yr87povhf" path="res://Scenes/Level2/level_2.gd" id="1_hp1rf"]
 [ext_resource type="PackedScene" uid="uid://bkiom600l0aa6" path="res://Scenes/Player/player.tscn" id="2_dbdtm"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cxc4xnt4ygwdb" path="res://Scenes/crate_medium.tscn" id="8_wo0g0"]
 [ext_resource type="PackedScene" uid="uid://dcbrm1u85lrkq" path="res://Scenes/office_chair.tscn" id="9_wo0g0"]
 [ext_resource type="PackedScene" uid="uid://bo8uw4okbm14n" path="res://Scenes/guard.tscn" id="10_ki0lg"]
+[ext_resource type="PackedScene" uid="uid://dhqgwfunu3r6r" path="res://Scenes/crate_small.tscn" id="11_7jvws"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_hp1rf")
@@ -405,14 +406,6 @@ scale = Vector2(28, 28)
 
 [node name="Level3" type="Node2D" parent="GameObjects"]
 
-[node name="crate_large" parent="GameObjects/Level3" instance=ExtResource("7_3yc6a")]
-position = Vector2(121190, -1810)
-scale = Vector2(200, 200)
-
-[node name="crate_large5" parent="GameObjects/Level3" instance=ExtResource("7_3yc6a")]
-position = Vector2(119870.01, 5899.999)
-scale = Vector2(200, 200)
-
 [node name="crate_large2" parent="GameObjects/Level3" instance=ExtResource("7_3yc6a")]
 position = Vector2(132460, -550.00024)
 rotation = 1.5707964
@@ -443,6 +436,14 @@ scale = Vector2(28, 28)
 [node name="guard_360" parent="GameObjects/Level3" instance=ExtResource("10_ki0lg")]
 position = Vector2(135940, 7539.9995)
 scale = Vector2(28, 28)
+
+[node name="crate_medium" parent="GameObjects/Level3" instance=ExtResource("8_wo0g0")]
+position = Vector2(121299.984, -1870)
+scale = Vector2(270, 270)
+
+[node name="crate_small" parent="GameObjects/Level3" instance=ExtResource("11_7jvws")]
+position = Vector2(119700.01, 6280.0005)
+scale = Vector2(400, 400)
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
