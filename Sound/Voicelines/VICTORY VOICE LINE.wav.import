@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dpjp48x2ojmeo"
+path="res://.godot/imported/VICTORY VOICE LINE.wav-37c7df3fee3e815ce7fd825af06d60e4.sample"
+
+[deps]
+
+source_file="res://Sound/Voicelines/VICTORY VOICE LINE.wav"
+dest_files=["res://.godot/imported/VICTORY VOICE LINE.wav-37c7df3fee3e815ce7fd825af06d60e4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

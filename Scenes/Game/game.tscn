@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dum34mb4dxme5"]
+[gd_scene load_steps=8 format=3 uid="uid://dum34mb4dxme5"]
 
 [ext_resource type="Script" uid="uid://bvfbhrxo8d74e" path="res://Scenes/Game/game.gd" id="1_qikps"]
+[ext_resource type="AudioStream" uid="uid://dpjp48x2ojmeo" path="res://Sound/Voicelines/VICTORY VOICE LINE.wav" id="2_vifcx"]
 [ext_resource type="PackedScene" uid="uid://cn506ewwgm05c" path="res://Scenes/MainMenu/main_menu.tscn" id="3_ciybh"]
 [ext_resource type="PackedScene" uid="uid://b6b2q3c6pph8b" path="res://Scenes/Win/win.tscn" id="3_flgk0"]
 [ext_resource type="PackedScene" uid="uid://cg5wrwwahia15" path="res://Scenes/Level1/level_1.tscn" id="6_flgk0"]
@@ -10,8 +11,11 @@
 [node name="Game" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_qikps")
-current_level = 2
+current_level = 3
 metadata/_edit_lock_ = true
+
+[node name="VictoryVoiceLine" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vifcx")
 
 [node name="MainUI" type="CanvasLayer" parent="."]
 

@@ -15,10 +15,7 @@ func start() -> void:
 	playing_level = true
 	$Player.turn_on_camera()
 
-func _process(delta: float):
-	pass
-		
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if not playing_level:
 		return
 	if Input.is_action_just_pressed("Escape"):

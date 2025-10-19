@@ -3,6 +3,9 @@ extends Node2D
 signal return_to_menu
 signal level_completed
 
+@export
+var guard_rotation_speed = 0.5
+
 var playing_level = false
 @onready
 var initial_player_position = $Player.position
@@ -17,9 +20,14 @@ func start() -> void:
 	$Player.turn_on_camera()
 	$Player/Audio/FactoryAmbiance.playing = true
 
-func _process(_delta: float):
-	pass
-		
+func _process(delta: float):
+	$GameObjects/Guards/guard_moving.rotation += guard_rotation_speed * delta
+	$GameObjects/Guards/guard_moving3.rotation += guard_rotation_speed * delta
+	$GameObjects/Guards/guard_moving2.rotation += guard_rotation_speed * delta
+	$GameObjects/Guards/guard_moving4.rotation += guard_rotation_speed * delta
+	$GameObjects/Guards/guard_moving5.rotation += guard_rotation_speed * delta
+	$GameObjects/Guards/guard_360.rotation += guard_rotation_speed * delta
+
 func _input(_event: InputEvent) -> void:
 	if not playing_level:
 		return

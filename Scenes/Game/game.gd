@@ -21,6 +21,7 @@ func _on_main_menu_start_game() -> void:
 			play_win()
 
 func play_win() -> void:
+	$VictoryVoiceLine.playing = true
 	$WinUI.visible = true
 
 func _on_level_1_return_to_menu() -> void:
@@ -47,5 +48,7 @@ func _on_level_3_level_completed() -> void:
 	play_win()
 
 func _on_win_return_to_menu() -> void:
+	$MainUI.visible = true
 	$WinUI.visible = false
-	$MainMenu.visible = true
+	$VictoryVoiceLine.playing = false
+	current_level = 1
