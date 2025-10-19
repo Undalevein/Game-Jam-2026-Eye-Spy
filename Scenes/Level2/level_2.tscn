@@ -1,18 +1,26 @@
-[gd_scene load_steps=14 format=3 uid="uid://pci8y50bj2mv"]
+[gd_scene load_steps=22 format=3 uid="uid://pci8y50bj2mv"]
 
 [ext_resource type="Script" uid="uid://clv6yr87povhf" path="res://Scenes/Level2/level_2.gd" id="1_hp1rf"]
 [ext_resource type="PackedScene" uid="uid://bkiom600l0aa6" path="res://Scenes/Player/player.tscn" id="2_dbdtm"]
 [ext_resource type="AudioStream" uid="uid://dijar5kqsckgs" path="res://Sound/FACTORY AMBIENCE.wav" id="3_0u6qp"]
 [ext_resource type="PackedScene" uid="uid://xcbhh04btsa7" path="res://Scenes/GameInterface/game_interface.tscn" id="3_gted6"]
+[ext_resource type="AudioStream" uid="uid://cpvku5gr8epal" path="res://Sound/Voicelines/GO STRAIGHT.wav" id="3_w8jtt"]
 [ext_resource type="PackedScene" uid="uid://cu4nq7khuo13p" path="res://Scenes/PauseMenu/pause_menu.tscn" id="4_0u6qp"]
+[ext_resource type="AudioStream" uid="uid://coasc1iqmoaff" path="res://Sound/Voicelines/STOPPPPP.wav" id="4_3tktx"]
 [ext_resource type="AudioStream" uid="uid://basg01v3ete4y" path="res://Sound/CAMERA BEEP.mp3" id="4_50k73"]
 [ext_resource type="AudioStream" uid="uid://b0nc6top31gvj" path="res://Sound/CONCRETE FOOTSTEPS.mp3" id="4_mt6hc"]
 [ext_resource type="PackedScene" uid="uid://ds1etbutpbpeb" path="res://Scenes/wall.tscn" id="4_od0tw"]
+[ext_resource type="AudioStream" uid="uid://dvthoh2n5twn1" path="res://Sound/Voicelines/TURN LEFT.wav" id="5_ilqku"]
+[ext_resource type="AudioStream" uid="uid://cdpk8vwg6t8me" path="res://Sound/Voicelines/TURN RIGHT.wav" id="6_pl4dg"]
 [ext_resource type="PackedScene" uid="uid://c143oxi3rakq1" path="res://Scenes/crate_large.tscn" id="7_3yc6a"]
 [ext_resource type="PackedScene" uid="uid://cxc4xnt4ygwdb" path="res://Scenes/crate_medium.tscn" id="8_wo0g0"]
 [ext_resource type="PackedScene" uid="uid://dcbrm1u85lrkq" path="res://Scenes/office_chair.tscn" id="9_wo0g0"]
 [ext_resource type="PackedScene" uid="uid://bo8uw4okbm14n" path="res://Scenes/guard.tscn" id="10_ki0lg"]
 [ext_resource type="PackedScene" uid="uid://dhqgwfunu3r6r" path="res://Scenes/crate_small.tscn" id="11_7jvws"]
+[ext_resource type="Texture2D" uid="uid://d3p01i31nqx7o" path="res://Sprites/Tile.png" id="12_v37vd"]
+[ext_resource type="Texture2D" uid="uid://bw633u2lls3j4" path="res://Sprites/tape.png" id="13_ymj0i"]
+[ext_resource type="PackedScene" uid="uid://b41p4j5kt61jr" path="res://Scenes/NoticeScreen2/notice_screen2.tscn" id="14_r24tj"]
+[ext_resource type="PackedScene" uid="uid://d72tpjlsm3m" path="res://Scenes/level_complete_trigger.tscn" id="17_bea4e"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_hp1rf")
@@ -64,6 +72,22 @@ volume_db = -5.56
 max_distance = 2807.0
 attenuation = 1.4142189
 
+[node name="TURNLEFT_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("5_ilqku")
+
+[node name="TURNRIGHT_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("6_pl4dg")
+
+[node name="GOSTRAIGHT_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("3_w8jtt")
+
+[node name="STOP_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("4_3tktx")
+
 [node name="GameObjects" type="Node2D" parent="."]
 process_mode = 1
 position = Vector2(635, 734)
@@ -73,157 +97,17 @@ scale = Vector2(0.1, 0.1)
 
 [node name="Wall" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
 position = Vector2(-6119.999, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall2" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(3010, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall3" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(12179.999, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall4" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(21329.998, -6879.999)
-scale = Vector2(9.999998, 9.999998)
+scale = Vector2(400, 10)
 
 [node name="Wall5" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6130, -6890)
-rotation = 1.5707964
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall6" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6129.999, 2280)
-rotation = 1.5707964
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall7" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(30509.996, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall8" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(39689.996, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall9" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(48860, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall17" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(58030, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall18" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(67200, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall19" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(76350, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall21" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(85530, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall22" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(94710, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall23" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(103880.01, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall20" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(113050, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall24" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(122220, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall25" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(131370, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall26" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(140550, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall27" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(149730, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall35" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(58030, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall36" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(67200, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall37" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(76350, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall38" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(85530, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall39" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(94710, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall40" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(103880.01, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall41" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(113050, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall42" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(122220, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall43" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(131370, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall44" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(140550, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall45" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(149730, 9329.999)
-scale = Vector2(9.999998, 9.999998)
+position = Vector2(-7810.0005, 10359.999)
+rotation = -1.5707964
+scale = Vector2(100, 7.655)
 
 [node name="Wall10" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6129.999, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall11" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(3059.9998, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall12" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(12230, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall13" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(21389.998, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall14" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(30550, 9330)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall15" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(39739.996, 9330)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall16" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(48909.992, 9330)
-scale = Vector2(9.999998, 9.999998)
+position = Vector2(360649.97, 11530)
+rotation = 3.1415927
+scale = Vector2(400, 10)
 
 [node name="Level1" type="Node2D" parent="GameObjects"]
 
@@ -396,14 +280,6 @@ scale = Vector2(95, 95)
 position = Vector2(97900, -2420)
 scale = Vector2(95, 95)
 
-[node name="guard_moving" parent="GameObjects/Level2" instance=ExtResource("10_ki0lg")]
-position = Vector2(80320, 90.00195)
-scale = Vector2(28, 28)
-
-[node name="guard_moving2" parent="GameObjects/Level2" instance=ExtResource("10_ki0lg")]
-position = Vector2(87630, 7830.001)
-scale = Vector2(28, 28)
-
 [node name="Level3" type="Node2D" parent="GameObjects"]
 
 [node name="crate_large2" parent="GameObjects/Level3" instance=ExtResource("7_3yc6a")]
@@ -425,25 +301,411 @@ scale = Vector2(190, 190)
 position = Vector2(140739.98, -1570)
 scale = Vector2(60, 60)
 
-[node name="guard_moving" parent="GameObjects/Level3" instance=ExtResource("10_ki0lg")]
-position = Vector2(137180, 370)
-scale = Vector2(28, 28)
-
-[node name="guard_moving2" parent="GameObjects/Level3" instance=ExtResource("10_ki0lg")]
-position = Vector2(127779.99, 8279.999)
-scale = Vector2(28, 28)
-
-[node name="guard_360" parent="GameObjects/Level3" instance=ExtResource("10_ki0lg")]
-position = Vector2(135940, 7539.9995)
-scale = Vector2(28, 28)
-
 [node name="crate_medium" parent="GameObjects/Level3" instance=ExtResource("8_wo0g0")]
 position = Vector2(121299.984, -1870)
 scale = Vector2(270, 270)
 
 [node name="crate_small" parent="GameObjects/Level3" instance=ExtResource("11_7jvws")]
-position = Vector2(119700.01, 6280.0005)
+position = Vector2(119700, 6240.0005)
 scale = Vector2(400, 400)
+
+[node name="Background" type="Node2D" parent="GameObjects"]
+position = Vector2(-72489.99, -24759.998)
+scale = Vector2(65.74283, 60.099422)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="GameObjects/Background"]
+offset_left = -5574.9043
+offset_top = -3125.4875
+offset_right = -5474.9043
+offset_bottom = -3025.4875
+scale = Vector2(65.74283, 60.09943)
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="GameObjects/Background"]
+offset_left = -1078.749
+offset_top = -5705.879
+offset_right = -978.749
+offset_bottom = -5605.879
+scale = Vector2(65.74283, 60.09943)
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="GameObjects/Background"]
+offset_left = -863.3642
+offset_top = 598.17535
+offset_right = -763.3642
+offset_bottom = 698.17535
+scale = Vector2(65.74283, 60.09943)
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="GameObjects/Background"]
+offset_left = 352.12952
+offset_top = 573.3831
+offset_right = 362.12952
+offset_bottom = 583.3831
+scale = Vector2(65.74283, 60.09943)
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="ColorRect5" type="ColorRect" parent="GameObjects/Background"]
+offset_left = 352.5859
+offset_top = -267.3903
+offset_right = 362.5859
+offset_bottom = -257.3903
+scale = Vector2(65.74283, 60.09943)
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Tile" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(1069.1659, 380.70242)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile2" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(1069.4701, 550.75397)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile3" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(1220.6654, 380.36963)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile4" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(1222.4906, 546.09503)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile5" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(1366.6888, 360.73553)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile6" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(1366.2325, 525.29614)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile7" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(1490.3525, 384.8622)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile8" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(1512.8644, 510.65375)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile9" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(1512.8644, 510.65375)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile10" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(1628.3143, 386.8589)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile11" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(1661.1697, 547.9253)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile12" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(1777.2279, 391.85065)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile13" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(1802.63, 541.6025)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile14" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(1919.905, 386.8589)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile15" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(1945.9155, 534.11487)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile16" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(2033.6816, 392.51617)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile17" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(2078.2493, 547.5925)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile18" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(2174.838, 382.19998)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile19" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(2226.2502, 533.2829)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile20" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(2368.7754, 536.27795)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile22" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(2441.483, 394.0137)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile23" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(2513.43, 543.1)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile24" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(2595.264, 404.66272)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile25" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(2666.6025, 553.749)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile26" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(2735.051, 394.6793)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile27" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(2807.7585, 538.44104)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile28" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(2886.094, 394.0137)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile29" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(2960.9312, 543.1)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile30" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3034.247, 394.84564)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile31" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3107.563, 552.4179)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile32" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3224.9905, 394.18008)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile33" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3255.108, 548.5909)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile34" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3371.166, 400.33655)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile35" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3404.7817, 546.4278)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile36" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3513.843, 403.498)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile37" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3545.938, 547.25977)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile38" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3624.2734, 386.6925)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile39" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3684.3562, 541.26965)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile40" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3768.928, 382.19995)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile41" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3806.0422, 551.9187)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile42" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3806.0422, 551.9187)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile43" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3887.8762, 389.02197)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile44" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3952.8267, 541.1033)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tile21" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(2296.22, 381.86716)
+scale = Vector2(0.15210783, 0.16639094)
+texture = ExtResource("12_v37vd")
+metadata/_edit_lock_ = true
+
+[node name="Tape" type="Sprite2D" parent="GameObjects/Background"]
+z_index = -100
+position = Vector2(3484.1826, 449.8379)
+scale = Vector2(0.110444024, 0.2510488)
+texture = ExtResource("13_ymj0i")
+metadata/_edit_lock_ = true
+
+[node name="Guards" type="Node2D" parent="GameObjects"]
+position = Vector2(-72489.99, -24759.996)
+scale = Vector2(65.74283, 60.09942)
+
+[node name="guard_moving" parent="GameObjects/Guards" instance=ExtResource("10_ki0lg")]
+position = Vector2(2324.3599, 413.4815)
+scale = Vector2(0.42590192, 0.46589467)
+
+[node name="guard_moving3" parent="GameObjects/Guards" instance=ExtResource("10_ki0lg")]
+position = Vector2(1646.8715, 437.109)
+scale = Vector2(0.42590192, 0.46589467)
+
+[node name="guard_moving2" parent="GameObjects/Guards" instance=ExtResource("10_ki0lg")]
+position = Vector2(2435.5505, 542.26807)
+scale = Vector2(0.42590192, 0.46589467)
+
+[node name="guard_moving4" parent="GameObjects/Guards" instance=ExtResource("10_ki0lg")]
+position = Vector2(3189.245, 418.14044)
+scale = Vector2(0.42590192, 0.46589467)
+
+[node name="guard_moving5" parent="GameObjects/Guards" instance=ExtResource("10_ki0lg")]
+position = Vector2(3046.2634, 549.7557)
+scale = Vector2(0.42590192, 0.46589467)
+
+[node name="guard_360" parent="GameObjects/Guards" instance=ExtResource("10_ki0lg")]
+position = Vector2(3170.3833, 537.44275)
+scale = Vector2(0.42590192, 0.46589467)
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -454,6 +716,14 @@ visible = false
 [node name="PauseMenu" parent="UI" instance=ExtResource("4_0u6qp")]
 visible = false
 
+[node name="NoticeScreen2" parent="UI" instance=ExtResource("14_r24tj")]
+visible = false
+
+[node name="LevelCompleteTrigger" parent="." instance=ExtResource("17_bea4e")]
+position = Vector2(16343.001, 1056)
+scale = Vector2(7.57, 7.57)
+
+[connection signal="die" from="Player" to="." method="_on_player_die"]
 [connection signal="escape" from="UI/GameInterface" to="." method="_on_game_interface_escape"]
 [connection signal="rotate_left" from="UI/GameInterface" to="." method="_on_game_interface_rotate_left"]
 [connection signal="rotate_right" from="UI/GameInterface" to="." method="_on_game_interface_rotate_right"]
@@ -461,3 +731,4 @@ visible = false
 [connection signal="walk_forward" from="UI/GameInterface" to="." method="_on_game_interface_walk_forward"]
 [connection signal="continue_game" from="UI/PauseMenu" to="." method="_on_pause_menu_continue_game"]
 [connection signal="return_to_menu" from="UI/PauseMenu" to="." method="_on_pause_menu_return_to_menu"]
+[connection signal="body_entered" from="LevelCompleteTrigger" to="." method="_on_level_complete_trigger_body_entered"]

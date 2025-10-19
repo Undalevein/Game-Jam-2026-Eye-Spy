@@ -10,16 +10,17 @@ var initial_player_position = $Player.position
 var initial_player_rotation = $Player.rotation
 
 func start() -> void:
+	$UI/NoticeScreen2.visible = true
 	$UI/GameInterface.visible = true 
 	get_tree().paused = false
 	playing_level = true
 	$Player.turn_on_camera()
 	$Player/Audio/FactoryAmbiance.playing = true
 
-func _process(delta: float):
+func _process(_delta: float):
 	pass
 		
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if not playing_level:
 		return
 	if Input.is_action_just_pressed("Escape"):
@@ -32,16 +33,24 @@ func _on_game_interface_escape() -> void:
 
 func _on_game_interface_walk_forward() -> void:
 	$Player.walk_forward()
+	$Player/Audio/GOSTRAIGHT_Voiceline.playing = false
+	$Player/Audio/GOSTRAIGHT_Voiceline.playing = true
 	$Player/Audio/Footsteps.playing = true
 
 func _on_game_interface_rotate_left() -> void:
+	$Player/Audio/TURNLEFT_Voiceline.playing = false
+	$Player/Audio/TURNLEFT_Voiceline.playing = true
 	$Player.rotate_left()
 
 func _on_game_interface_rotate_right() -> void:
+	$Player/Audio/TURNRIGHT_Voiceline.playing = false
+	$Player/Audio/TURNRIGHT_Voiceline.playing = true
 	$Player.rotate_right()
 
 func _on_game_interface_stop() -> void:
 	$Player.stop()
+	$Player/Audio/STOP_Voiceline.playing = false
+	$Player/Audio/STOP_Voiceline.playing = true
 	$Player/Audio/Footsteps.playing = false
 
 func _on_pause_menu_continue_game() -> void:
@@ -59,7 +68,20 @@ func close_level() -> void:
 	visible = false
 	playing_level = false
 	stop_all_audio()
+	$Player.position = initial_player_position
+	$Player.rotation = initial_player_rotation
+	$Player.stop()
 
 func stop_all_audio() -> void:
 	$Player/Audio/FactoryAmbiance.playing = false
 	$Player/Audio/Footsteps.playing = false
+
+func _on_player_die() -> void:
+	$Player.position = initial_player_position
+	$Player.rotation = initial_player_rotation
+
+func _on_level_complete_trigger_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		stop_all_audio()
+		close_level()
+		level_completed.emit()

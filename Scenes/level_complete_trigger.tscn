@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://d72tpjlsm3m"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_agpsy"]
-normal = Vector2(-1, 0)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_agpsy"]
+a = Vector2(0, -128)
+b = Vector2(0, 103)
 
 [node name="LevelCompleteTrigger" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("WorldBoundaryShape2D_agpsy")
+shape = SubResource("SegmentShape2D_agpsy")

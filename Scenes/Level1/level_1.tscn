@@ -1,18 +1,27 @@
-[gd_scene load_steps=14 format=3 uid="uid://cg5wrwwahia15"]
+[gd_scene load_steps=23 format=3 uid="uid://cg5wrwwahia15"]
 
 [ext_resource type="Script" uid="uid://ghwp6qghjmgb" path="res://Scenes/Level1/level_1.gd" id="1_pylp5"]
 [ext_resource type="PackedScene" uid="uid://bkiom600l0aa6" path="res://Scenes/Player/player.tscn" id="2_iyse3"]
 [ext_resource type="PackedScene" uid="uid://xcbhh04btsa7" path="res://Scenes/GameInterface/game_interface.tscn" id="3_la6op"]
 [ext_resource type="PackedScene" uid="uid://dng6dd8hxc7xm" path="res://Scenes/fence.tscn" id="3_ojcjo"]
+[ext_resource type="AudioStream" uid="uid://jky352k4jnjr" path="res://Sound/Voicelines/INTRODUCTION.wav" id="3_vfyie"]
+[ext_resource type="AudioStream" uid="uid://dvthoh2n5twn1" path="res://Sound/Voicelines/TURN LEFT.wav" id="3_yhq2l"]
 [ext_resource type="PackedScene" uid="uid://cu4nq7khuo13p" path="res://Scenes/PauseMenu/pause_menu.tscn" id="4_0q28u"]
 [ext_resource type="PackedScene" uid="uid://cxc4xnt4ygwdb" path="res://Scenes/crate_medium.tscn" id="4_cirk1"]
+[ext_resource type="AudioStream" uid="uid://cdpk8vwg6t8me" path="res://Sound/Voicelines/TURN RIGHT.wav" id="4_vfyie"]
+[ext_resource type="AudioStream" uid="uid://cpvku5gr8epal" path="res://Sound/Voicelines/GO STRAIGHT.wav" id="5_2ugre"]
 [ext_resource type="PackedScene" uid="uid://bo8uw4okbm14n" path="res://Scenes/guard.tscn" id="5_6bneh"]
 [ext_resource type="PackedScene" uid="uid://cbu4038rf5v2q" path="res://Scenes/tires.tscn" id="5_s0xjy"]
 [ext_resource type="AudioStream" uid="uid://cmsg5po2tyllr" path="res://Sound/construction-site-49508.mp3" id="6_6bneh"]
 [ext_resource type="AudioStream" uid="uid://u3ooyk75abg4" path="res://Sound/DIRT FOOTSTEPS.mp3" id="6_cirk1"]
+[ext_resource type="AudioStream" uid="uid://coasc1iqmoaff" path="res://Sound/Voicelines/STOPPPPP.wav" id="6_wgsrm"]
+[ext_resource type="PackedScene" uid="uid://dnbnx283jyb6x" path="res://Scenes/dump_truck.tscn" id="9_4ibnj"]
 [ext_resource type="PackedScene" uid="uid://d72tpjlsm3m" path="res://Scenes/level_complete_trigger.tscn" id="9_ajn4s"]
 [ext_resource type="Texture2D" uid="uid://betguv1wkw13y" path="res://Sprites/Shit.png" id="9_puyxw"]
+[ext_resource type="Texture2D" uid="uid://ba88gvbtl1v4s" path="res://Sprites/Shit Turf.png" id="10_7umgn"]
+[ext_resource type="Texture2D" uid="uid://bw633u2lls3j4" path="res://Sprites/tape.png" id="11_v37a3"]
 [ext_resource type="PackedScene" uid="uid://rgss7xfgduh7" path="res://Scenes/NoticeScreen/notice_screen.tscn" id="12_pmmu5"]
+[ext_resource type="Texture2D" uid="uid://c8vwf17urokmn" path="res://Sprites/Building.png" id="17_nukn2"]
 
 [node name="Level1" type="Node2D"]
 process_mode = 3
@@ -27,6 +36,26 @@ walking_speed = 300.0
 [node name="Audio" type="Node2D" parent="Player"]
 rotation = -1.5707964
 scale = Vector2(99.99999, 99.99999)
+
+[node name="IntroductionVoiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("3_vfyie")
+
+[node name="TURNLEFT_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("3_yhq2l")
+
+[node name="TURNRIGHT_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("4_vfyie")
+
+[node name="GOSTRAIGHT_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("5_2ugre")
+
+[node name="STOP_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("6_wgsrm")
 
 [node name="ConstructionAmbiance" type="AudioStreamPlayer2D" parent="Player/Audio"]
 scale = Vector2(0.99999994, 0.99999994)
@@ -261,17 +290,30 @@ position = Vector2(482.6001, 139.70003)
 position = Vector2(481.20007, 6.9000015)
 
 [node name="crate_medium" parent="GameObjects/third_level" instance=ExtResource("4_cirk1")]
-position = Vector2(633.50006, 53.5)
+position = Vector2(623.50006, 54.100006)
 rotation = -0.06981317
 scale = Vector2(2, 2)
 
-[node name="crate_medium2" parent="GameObjects/third_level" instance=ExtResource("4_cirk1")]
-position = Vector2(651.39996, 105.3)
-scale = Vector2(3, 3)
+[node name="dump_truck2" parent="GameObjects/third_level" instance=ExtResource("9_4ibnj")]
+position = Vector2(749.60004, 74.2)
+scale = Vector2(0.715, 0.715)
 
-[node name="crate_medium3" parent="GameObjects/third_level" instance=ExtResource("4_cirk1")]
-position = Vector2(765.4, 70.200005)
-scale = Vector2(2.5, 2.5)
+[node name="dump_truck5" parent="GameObjects/third_level" instance=ExtResource("9_4ibnj")]
+position = Vector2(749.30005, 98.09999)
+scale = Vector2(0.715, 0.715)
+
+[node name="dump_truck4" parent="GameObjects/third_level" instance=ExtResource("9_4ibnj")]
+position = Vector2(799.6, 75.8)
+rotation = -1.5446163
+scale = Vector2(0.61, 0.61)
+
+[node name="dump_truck3" parent="GameObjects/third_level" instance=ExtResource("9_4ibnj")]
+position = Vector2(750.4, 50.600002)
+scale = Vector2(0.715, 0.715)
+
+[node name="crate_medium2" parent="GameObjects/third_level" instance=ExtResource("4_cirk1")]
+position = Vector2(639.10004, 104.40002)
+scale = Vector2(3, 3)
 
 [node name="crate_medium4" parent="GameObjects/third_level" instance=ExtResource("4_cirk1")]
 position = Vector2(894.3001, 72.3)
@@ -290,140 +332,289 @@ scale = Vector2(0.3, 0.3)
 [node name="Background" type="Node2D" parent="GameObjects"]
 position = Vector2(126.299995, 74.2)
 scale = Vector2(0.1908203, 0.1908203)
+metadata/_edit_lock_ = true
 
 [node name="Dirt" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt2" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(1017.1873, 0)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt3" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(1984.0654, 0)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt4" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(2979.7666, 0)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt5" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(3981.2327, 0)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt6" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(4993.1777, 0)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt7" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(0, -1010.8986)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt8" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(1017.1873, -1010.8986)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt9" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(1984.0654, -1010.8986)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt10" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(2979.7666, -1010.8986)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt11" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(3981.2327, -1010.8986)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt12" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(4993.1777, -1010.8986)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt13" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(0, 982.0756)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt14" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(1017.1873, 982.0756)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt15" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(1984.0654, 982.0756)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt16" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(2979.7666, 982.0756)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt17" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(3981.2327, 982.0756)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt18" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(4993.1777, 982.0756)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt19" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(0, 982.0756)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt25" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(-1016.13916, 0)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt26" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(-1016.13916, -1010.8986)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt27" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(-1016.13916, 982.0756)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt20" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(1017.1873, 982.0756)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt21" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(1984.0654, 982.0756)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
+
+[node name="ShitTurf" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(-707.4729, 900.3235)
+scale = Vector2(0.919652, 0.919652)
+texture = ExtResource("10_7umgn")
+metadata/_edit_lock_ = true
+
+[node name="ShitTurf2" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(224.2948, 903.9919)
+scale = Vector2(0.919652, 0.919652)
+texture = ExtResource("10_7umgn")
+metadata/_edit_lock_ = true
+
+[node name="ShitTurf3" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(-1377.2117, 900.3235)
+scale = Vector2(0.919652, 0.919652)
+texture = ExtResource("10_7umgn")
+metadata/_edit_lock_ = true
+
+[node name="ShitTurf4" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(-1362.5383, 1219.996)
+scale = Vector2(0.919652, 0.919652)
+texture = ExtResource("10_7umgn")
+metadata/_edit_lock_ = true
+
+[node name="ShitTurf5" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(-505.18726, 1283.9303)
+scale = Vector2(0.919652, 0.919652)
+texture = ExtResource("10_7umgn")
+metadata/_edit_lock_ = true
+
+[node name="ShitTurf6" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(1085.8383, 951.1566)
+scale = Vector2(0.919652, 0.919652)
+texture = ExtResource("10_7umgn")
+metadata/_edit_lock_ = true
+
+[node name="ShitTurf7" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(350.06754, 1258.7756)
+scale = Vector2(0.919652, 0.919652)
+texture = ExtResource("10_7umgn")
+metadata/_edit_lock_ = true
+
+[node name="ShitTurf8" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(1162.3499, 1202.7021)
+scale = Vector2(0.919652, 0.919652)
+texture = ExtResource("10_7umgn")
+metadata/_edit_lock_ = true
+
+[node name="ShitTurf9" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(1132.4789, 904.51624)
+scale = Vector2(0.919652, 0.919652)
+texture = ExtResource("10_7umgn")
+metadata/_edit_lock_ = true
+
+[node name="ShitTurf10" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(2318.4116, 1211.611)
+scale = Vector2(0.919652, 0.919652)
+texture = ExtResource("10_7umgn")
+metadata/_edit_lock_ = true
+
+[node name="ShitTurf11" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(1896.0247, 1092.1268)
+scale = Vector2(0.919652, 0.919652)
+texture = ExtResource("10_7umgn")
+metadata/_edit_lock_ = true
+
+[node name="ShitTurf12" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(1867.2018, 916.04504)
+scale = Vector2(0.919652, 0.919652)
+texture = ExtResource("10_7umgn")
+metadata/_edit_lock_ = true
+
+[node name="ShitTurf13" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(2591.4429, 922.33374)
+scale = Vector2(0.919652, 0.919652)
+texture = ExtResource("10_7umgn")
+metadata/_edit_lock_ = true
+
+[node name="ShitTurf14" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(2591.4429, 922.33374)
+scale = Vector2(0.919652, 0.919652)
+texture = ExtResource("10_7umgn")
+metadata/_edit_lock_ = true
 
 [node name="Dirt22" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(2979.7666, 982.0756)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt23" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(3981.2327, 982.0756)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
 
 [node name="Dirt24" type="Sprite2D" parent="GameObjects/Background"]
 z_index = -100
 position = Vector2(4993.1777, 982.0756)
 texture = ExtResource("9_puyxw")
+metadata/_edit_lock_ = true
+
+[node name="Tape" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(4691.848, 7.336735)
+scale = Vector2(0.2676566, 0.66888434)
+texture = ExtResource("11_v37a3")
+metadata/_edit_lock_ = true
+
+[node name="Building" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(-393.56396, -958.49335)
+scale = Vector2(1.0419651, 1.0419651)
+texture = ExtResource("17_nukn2")
+metadata/_edit_lock_ = true
+
+[node name="Building2" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(3333.5027, 929.6705)
+scale = Vector2(1.0419651, 1.0419651)
+texture = ExtResource("17_nukn2")
+metadata/_edit_lock_ = true
+
+[node name="Building3" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(2477.7239, 967.4023)
+scale = Vector2(1.0419651, 1.0419651)
+texture = ExtResource("17_nukn2")
+metadata/_edit_lock_ = true
+
+[node name="Building4" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(835.3409, -968.97437)
+rotation = 1.5707964
+scale = Vector2(1.0419651, 1.0419651)
+texture = ExtResource("17_nukn2")
+metadata/_edit_lock_ = true
+
+[node name="Building5" type="Sprite2D" parent="GameObjects/Background"]
+position = Vector2(3502.2478, -975.26306)
+scale = Vector2(1.0419651, 1.0419651)
+texture = ExtResource("17_nukn2")
+metadata/_edit_lock_ = true
 
 [node name="LevelCompleteTrigger" parent="." instance=ExtResource("9_ajn4s")]
 position = Vector2(10232, 735)
@@ -451,3 +642,4 @@ visible = false
 [connection signal="walk_forward" from="UI/GameInterface" to="." method="_on_game_interface_walk_forward"]
 [connection signal="continue_game" from="UI/PauseMenu" to="." method="_on_pause_menu_continue_game"]
 [connection signal="return_to_menu" from="UI/PauseMenu" to="." method="_on_pause_menu_return_to_menu"]
+[connection signal="closed_window" from="UI/NoticeScreen" to="." method="_on_notice_screen_closed_window"]

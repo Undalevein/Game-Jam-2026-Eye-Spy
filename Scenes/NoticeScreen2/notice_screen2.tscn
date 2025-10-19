@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://b41p4j5kt61jr"]
+
+[ext_resource type="Script" uid="uid://egl345vwo1h2" path="res://Scenes/NoticeScreen2/notice_screen2.gd" id="1_0hqqw"]
+[ext_resource type="FontFile" uid="uid://cr6golww4ofp8" path="res://Fonts/novem___.ttf" id="2_e07pw"]
+[ext_resource type="Theme" uid="uid://bhlemtwoctqt1" path="res://Themes/ButtonTheme.tres" id="3_rl1jk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s7cd6"]
+font = ExtResource("2_e07pw")
+font_size = 100
+font_color = Color(0.3529412, 1, 0.28627452, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3oy77"]
+paragraph_spacing = 20.0
+font = ExtResource("2_e07pw")
+font_size = 50
+font_color = Color(0.38431373, 1, 0, 1)
+
+[node name="NoticeScreen2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0hqqw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05701016, 0.19235325, 0.054476894, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 85.0
+offset_right = 400.0
+offset_bottom = 186.0
+grow_horizontal = 2
+text = "Well Done Agent"
+label_settings = SubResource("LabelSettings_s7cd6")
+horizontal_alignment = 1
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -825.5
+offset_top = -207.5
+offset_right = 825.5
+offset_bottom = 207.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Agent Blind is now in the building, and we have received notice that there are a lot of agents in the area. 
+
+Be careful, we don't want him to get spotted."
+label_settings = SubResource("LabelSettings_3oy77")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -283.5
+offset_top = -209.0
+offset_right = 283.5
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_rl1jk")
+text = "Close"
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

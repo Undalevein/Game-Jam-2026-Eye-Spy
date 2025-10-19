@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://xcbhh04btsa7"]
+[gd_scene load_steps=7 format=3 uid="uid://xcbhh04btsa7"]
 
 [ext_resource type="Script" uid="uid://bcq85jgb32j7c" path="res://Scenes/GameInterface/game_interface.gd" id="1_ej7f1"]
+[ext_resource type="Texture2D" uid="uid://bbfwpd73oet50" path="res://Sprites/Steel Plate.png" id="2_3khe7"]
 [ext_resource type="Theme" uid="uid://bhlemtwoctqt1" path="res://Themes/ButtonTheme.tres" id="2_s3de8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3khe7"]
@@ -33,7 +34,18 @@ offset_top = -1000.0
 offset_bottom = 1000.0
 grow_horizontal = 0
 grow_vertical = 2
-color = Color(0.058034733, 0.2151418, 0.17079514, 1)
+color = Color(0.5489626, 0.5489626, 0.54896253, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -823.0
+offset_right = 1024.0
+offset_bottom = 877.0
+grow_vertical = 2
+texture = ExtResource("2_3khe7")
 
 [node name="EscapeButton" type="Button" parent="ColorRect"]
 layout_mode = 0

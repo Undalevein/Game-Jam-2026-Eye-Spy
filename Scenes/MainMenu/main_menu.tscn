@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cn506ewwgm05c"]
 
-[ext_resource type="Texture2D" uid="uid://diqibyuwdgmq8" path="res://Sprites/icon.svg" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://xdyyjthyhiio" path="res://Scenes/MainMenu/main_menu.gd" id="1_7vrkn"]
 [ext_resource type="Theme" uid="uid://bhlemtwoctqt1" path="res://Themes/ButtonTheme.tres" id="2_qgdf6"]
+[ext_resource type="Texture2D" uid="uid://idia0r8agxrp" path="res://Sprites/Logo_3.webp" id="3_qgdf6"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,6 +13,29 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7vrkn")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1750.0
+offset_top = -867.5
+offset_bottom = 882.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_qgdf6")
+
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -20,10 +43,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -368.0
-offset_right = 250.0
-offset_bottom = -268.0
+offset_left = -878.0
+offset_top = -598.0
+offset_right = -378.0
+offset_bottom = -498.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(0, 100)
@@ -38,28 +61,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -234.0
-offset_right = 250.0
-offset_bottom = -134.0
+offset_left = -878.0
+offset_top = -464.0
+offset_right = -378.0
+offset_bottom = -364.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(0, 50)
 theme = ExtResource("2_qgdf6")
 text = "Quit
 "
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -64.0
-offset_top = 292.0
-offset_right = 64.0
-offset_bottom = 420.0
-grow_horizontal = 2
-texture = ExtResource("1_06t4h")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
