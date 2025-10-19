@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dum34mb4dxme5"]
+[gd_scene load_steps=7 format=3 uid="uid://dum34mb4dxme5"]
 
 [ext_resource type="Script" uid="uid://bvfbhrxo8d74e" path="res://Scenes/Game/game.gd" id="1_qikps"]
 [ext_resource type="PackedScene" uid="uid://cn506ewwgm05c" path="res://Scenes/MainMenu/main_menu.tscn" id="3_ciybh"]
+[ext_resource type="PackedScene" uid="uid://b6b2q3c6pph8b" path="res://Scenes/Win/win.tscn" id="3_flgk0"]
 [ext_resource type="PackedScene" uid="uid://cg5wrwwahia15" path="res://Scenes/Level1/level_1.tscn" id="6_flgk0"]
 [ext_resource type="PackedScene" uid="uid://pci8y50bj2mv" path="res://Scenes/Level2/level_2.tscn" id="8_qtymf"]
 [ext_resource type="PackedScene" uid="uid://cq8tcw283lqtk" path="res://Scenes/Level3/level_3.tscn" id="9_ypmwd"]
@@ -14,6 +15,11 @@ metadata/_edit_lock_ = true
 [node name="MainUI" type="CanvasLayer" parent="."]
 
 [node name="MainMenu" parent="MainUI" instance=ExtResource("3_ciybh")]
+
+[node name="WinUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Win" parent="WinUI" instance=ExtResource("3_flgk0")]
 
 [node name="Levels" type="Node2D" parent="."]
 
@@ -30,7 +36,10 @@ visible = false
 position = Vector2(-8, 6310)
 
 [connection signal="start_game" from="MainUI/MainMenu" to="." method="_on_main_menu_start_game"]
+[connection signal="return_to_menu" from="WinUI/Win" to="." method="_on_win_return_to_menu"]
 [connection signal="level_completed" from="Levels/Level1" to="." method="_on_level_1_level_completed"]
 [connection signal="return_to_menu" from="Levels/Level1" to="." method="_on_level_1_return_to_menu"]
+[connection signal="level_completed" from="Levels/Level2" to="." method="_on_level_2_level_completed"]
 [connection signal="return_to_menu" from="Levels/Level2" to="." method="_on_level_2_return_to_menu"]
+[connection signal="level_completed" from="Levels/Level3" to="." method="_on_level_3_level_completed"]
 [connection signal="return_to_menu" from="Levels/Level3" to="." method="_on_level_3_return_to_menu"]

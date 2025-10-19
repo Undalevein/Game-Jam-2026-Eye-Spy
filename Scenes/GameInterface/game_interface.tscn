@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://xcbhh04btsa7"]
+[gd_scene load_steps=6 format=3 uid="uid://xcbhh04btsa7"]
 
 [ext_resource type="Script" uid="uid://bcq85jgb32j7c" path="res://Scenes/GameInterface/game_interface.gd" id="1_ej7f1"]
+[ext_resource type="Theme" uid="uid://bhlemtwoctqt1" path="res://Themes/ButtonTheme.tres" id="2_s3de8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3khe7"]
+bg_color = Color(0.6745098, 0.011764706, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1v04n"]
+bg_color = Color(0.56078434, 0.023529412, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_po0k5"]
+bg_color = Color(0.9882353, 0, 0.003921569, 1)
 
 [node name="GameInterface" type="Control"]
 layout_mode = 3
@@ -27,10 +37,11 @@ color = Color(0.058034733, 0.2151418, 0.17079514, 1)
 
 [node name="EscapeButton" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = 568.0
+offset_left = 492.0
 offset_top = 481.0
-offset_right = 633.39136
+offset_right = 629.0
 offset_bottom = 545.0
+theme = ExtResource("2_s3de8")
 text = "Menu"
 
 [node name="StraightButton" type="Button" parent="ColorRect"]
@@ -39,6 +50,7 @@ offset_left = 46.0
 offset_top = 589.0
 offset_right = 629.0
 offset_bottom = 739.0
+theme = ExtResource("2_s3de8")
 text = "GO STRAIGHT"
 
 [node name="TurnLeftButton" type="Button" parent="ColorRect"]
@@ -47,6 +59,7 @@ offset_left = 46.0
 offset_top = 760.0
 offset_right = 309.0
 offset_bottom = 910.0
+theme = ExtResource("2_s3de8")
 text = "TURN LEFT"
 
 [node name="TurnRightButton" type="Button" parent="ColorRect"]
@@ -55,6 +68,7 @@ offset_left = 361.0
 offset_top = 761.0
 offset_right = 622.0
 offset_bottom = 911.0
+theme = ExtResource("2_s3de8")
 text = "TURN RIGHT"
 
 [node name="StopButton" type="Button" parent="ColorRect"]
@@ -63,7 +77,12 @@ offset_left = 41.0
 offset_top = 940.0
 offset_right = 630.0
 offset_bottom = 1508.0
-text = "STOP"
+theme = ExtResource("2_s3de8")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxFlat_3khe7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1v04n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_po0k5")
+text = "STOP!"
 
 [connection signal="pressed" from="ColorRect/EscapeButton" to="." method="_on_escape_button_pressed"]
 [connection signal="pressed" from="ColorRect/StraightButton" to="." method="_on_straight_button_pressed"]

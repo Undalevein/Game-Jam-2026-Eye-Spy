@@ -21,7 +21,7 @@ func _on_main_menu_start_game() -> void:
 			play_win()
 
 func play_win() -> void:
-	pass
+	$WinUI.visible = true
 
 func _on_level_1_return_to_menu() -> void:
 	$MainUI.visible = true
@@ -33,4 +33,19 @@ func _on_level_3_return_to_menu() -> void:
 	$MainUI.visible = true
 
 func _on_level_1_level_completed() -> void:
-	pass # Replace with function body.
+	$Levels/Level1.visible = false
+	$Levels/Level2.visible = true
+	$Levels/Level2.start()
+
+func _on_level_2_level_completed() -> void:
+	$Levels/Level2.visible = false
+	$Levels/Level3.visible = true
+	$Levels/Level3.start()
+
+func _on_level_3_level_completed() -> void:
+	$Levels/Level3.visible = false
+	play_win()
+
+func _on_win_return_to_menu() -> void:
+	$WinUI.visible = false
+	$MainMenu.visible = true

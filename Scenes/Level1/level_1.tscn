@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cg5wrwwahia15"]
+[gd_scene load_steps=13 format=3 uid="uid://cg5wrwwahia15"]
 
 [ext_resource type="Script" uid="uid://ghwp6qghjmgb" path="res://Scenes/Level1/level_1.gd" id="1_pylp5"]
 [ext_resource type="PackedScene" uid="uid://bkiom600l0aa6" path="res://Scenes/Player/player.tscn" id="2_iyse3"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cmsg5po2tyllr" path="res://Sound/construction-site-49508.mp3" id="6_6bneh"]
 [ext_resource type="AudioStream" uid="uid://u3ooyk75abg4" path="res://Sound/DIRT FOOTSTEPS.mp3" id="6_cirk1"]
 [ext_resource type="PackedScene" uid="uid://d72tpjlsm3m" path="res://Scenes/level_complete_trigger.tscn" id="9_ajn4s"]
+[ext_resource type="PackedScene" uid="uid://rgss7xfgduh7" path="res://Scenes/NoticeScreen/notice_screen.tscn" id="12_pmmu5"]
 
 [node name="Level1" type="Node2D"]
 process_mode = 3
@@ -197,6 +198,11 @@ position = Vector2(485.7, 41.299995)
 rotation = -0.10471976
 scale = Vector2(2.5, 2.5)
 
+[node name="guard" parent="GameObjects/second_level" instance=ExtResource("5_6bneh")]
+position = Vector2(558.2, 89.1)
+rotation = -0.5585054
+scale = Vector2(0.318, 0.318)
+
 [node name="third_level" type="Node2D" parent="GameObjects"]
 
 [node name="third_level_border" type="Node2D" parent="GameObjects/third_level"]
@@ -281,7 +287,7 @@ rotation = 1.7453293
 scale = Vector2(0.3, 0.3)
 
 [node name="LevelCompleteTrigger" parent="." instance=ExtResource("9_ajn4s")]
-position = Vector2(10297, 754)
+position = Vector2(10232, 735)
 scale = Vector2(9.999998, 9.999998)
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -293,12 +299,12 @@ visible = false
 [node name="PauseMenu" parent="UI" instance=ExtResource("4_0q28u")]
 visible = false
 
-[node name="Area2D" parent="." instance=ExtResource("5_6bneh")]
-position = Vector2(5582.0005, 891)
-rotation = -0.55850536
-scale = Vector2(3.18, 3.18)
+[node name="NoticeScreen" parent="UI" instance=ExtResource("12_pmmu5")]
+visible = false
 
 [connection signal="die" from="Player" to="." method="_on_player_die"]
+[connection signal="body_entered" from="GameObjects/second_level/guard" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="LevelCompleteTrigger" to="." method="_on_level_complete_trigger_body_entered"]
 [connection signal="escape" from="UI/GameInterface" to="." method="_on_game_interface_escape"]
 [connection signal="rotate_left" from="UI/GameInterface" to="." method="_on_game_interface_rotate_left"]
 [connection signal="rotate_right" from="UI/GameInterface" to="." method="_on_game_interface_rotate_right"]
@@ -306,4 +312,3 @@ scale = Vector2(3.18, 3.18)
 [connection signal="walk_forward" from="UI/GameInterface" to="." method="_on_game_interface_walk_forward"]
 [connection signal="continue_game" from="UI/PauseMenu" to="." method="_on_pause_menu_continue_game"]
 [connection signal="return_to_menu" from="UI/PauseMenu" to="." method="_on_pause_menu_return_to_menu"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

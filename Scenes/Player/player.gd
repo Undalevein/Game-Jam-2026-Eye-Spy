@@ -45,7 +45,6 @@ func turn_off_camera() -> void:
 	$Camera2D.enabled = false
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("HELLO!")
 	walking = false
 	rotation_direction = Rotations.NONE
 	if area.is_in_group("Hazard"):

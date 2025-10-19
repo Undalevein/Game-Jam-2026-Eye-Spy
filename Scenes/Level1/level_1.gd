@@ -10,6 +10,7 @@ var initial_player_position = $Player.position
 var initial_player_rotation = $Player.rotation
 
 func start() -> void:
+	$UI/NoticeScreen.visible = true
 	$UI/GameInterface.visible = true 
 	get_tree().paused = false
 	playing_level = true
@@ -58,10 +59,16 @@ func close_level() -> void:
 	$Player.turn_off_camera()
 	visible = false
 	playing_level = false
+	$Player.position = initial_player_position
+	$Player.rotation = initial_player_rotation
 
 func _on_player_die() -> void:
 	$Player.position = initial_player_position
 	$Player.rotation = initial_player_rotation
 
-func _on_area_2d_body_entered(_body: Node2D) -> void:
-	level_completed.emit()
+func _on_level_complete_trigger_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		$Player/Audio/Footsteps.playing = false
+		$Player/Audio/ConstructionAmbiance.playing = false
+		close_level()
+		level_completed.emit()
