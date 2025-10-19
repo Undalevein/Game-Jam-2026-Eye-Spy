@@ -1,1 +1,37 @@
-extends Node2D
+extends CharacterBody2D
+
+enum Rotations {LEFT, RIGHT, NONE}
+
+@export
+var walking_speed = 3.0
+@export
+var rotate_speed = 3.0
+
+var walking = false
+var rotation_direction = Rotations.NONE
+
+func _physics_process(delta: float) -> void:
+	if walking:
+		var velocity = Vector2(0, -1).rotated(rotation) * walking_speed
+		move_and_collide(velocity * delta)
+	match rotation_direction:
+		Rotations.LEFT:
+			rotation -= rotate_speed * delta
+		Rotations.RIGHT:
+			rotation += rotate_speed * delta
+
+func walk_forward() -> void:
+	walking = true
+	rotation_direction = Rotations.NONE
+
+func rotate_left() -> void:
+	walking = false
+	rotation_direction = Rotations.LEFT
+
+func rotate_right() -> void:
+	walking = false
+	rotation_direction = Rotations.RIGHT
+
+func stop() -> void:
+	walking = false
+	rotation_direction = Rotations.NONE

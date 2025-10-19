@@ -1,56 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://dum34mb4dxme5"]
+[gd_scene load_steps=6 format=3 uid="uid://dum34mb4dxme5"]
 
 [ext_resource type="Script" uid="uid://bvfbhrxo8d74e" path="res://Scenes/Game/game.gd" id="1_qikps"]
-[ext_resource type="PackedScene" uid="uid://xcbhh04btsa7" path="res://Scenes/GameInterface/game_interface.tscn" id="2_i1e5p"]
-[ext_resource type="PackedScene" uid="uid://cu4nq7khuo13p" path="res://Scenes/PauseMenu/pause_menu.tscn" id="2_vifcx"]
 [ext_resource type="PackedScene" uid="uid://cn506ewwgm05c" path="res://Scenes/MainMenu/main_menu.tscn" id="3_ciybh"]
-[ext_resource type="PackedScene" uid="uid://b6b2q3c6pph8b" path="res://Scenes/Win/win.tscn" id="4_i1e5p"]
 [ext_resource type="PackedScene" uid="uid://cg5wrwwahia15" path="res://Scenes/Level1/level_1.tscn" id="6_flgk0"]
 [ext_resource type="PackedScene" uid="uid://pci8y50bj2mv" path="res://Scenes/Level2/level_2.tscn" id="8_qtymf"]
 [ext_resource type="PackedScene" uid="uid://cq8tcw283lqtk" path="res://Scenes/Level3/level_3.tscn" id="9_ypmwd"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_qikps")
-X_PAN_SPEED = 5.0
-Y_PAN_SPEED = 5.0
 metadata/_edit_lock_ = true
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
+[node name="MainUI" type="CanvasLayer" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="UI"]
-anchor_mode = 0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="UI/Camera2D"]
-
-[node name="GameInterface" parent="UI/Camera2D/CanvasLayer" instance=ExtResource("2_i1e5p")]
-visible = false
-
-[node name="MainMenu" parent="UI/Camera2D/CanvasLayer" instance=ExtResource("3_ciybh")]
-
-[node name="Win" parent="UI/Camera2D/CanvasLayer" instance=ExtResource("4_i1e5p")]
-visible = false
-
-[node name="PauseMenu" parent="UI/Camera2D/CanvasLayer" instance=ExtResource("2_vifcx")]
-visible = false
+[node name="MainMenu" parent="MainUI" instance=ExtResource("3_ciybh")]
 
 [node name="Levels" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
 
 [node name="Level1" parent="Levels" instance=ExtResource("6_flgk0")]
 visible = false
 
 [node name="Level2" parent="Levels" instance=ExtResource("8_qtymf")]
+visible = false
 
 [node name="Level3" parent="Levels" instance=ExtResource("9_ypmwd")]
+visible = false
 
-[connection signal="escape" from="UI/Camera2D/CanvasLayer/GameInterface" to="." method="_on_game_interface_escape"]
-[connection signal="start_game" from="UI/Camera2D/CanvasLayer/MainMenu" to="." method="_on_main_menu_start_game"]
-[connection signal="return_to_menu" from="UI/Camera2D/CanvasLayer/Win" to="." method="_on_win_return_to_menu"]
-[connection signal="continue_game" from="UI/Camera2D/CanvasLayer/PauseMenu" to="." method="_on_pause_menu_continue_game"]
-[connection signal="return_to_menu" from="UI/Camera2D/CanvasLayer/PauseMenu" to="." method="_on_pause_menu_return_to_menu"]
+[connection signal="start_game" from="MainUI/MainMenu" to="." method="_on_main_menu_start_game"]
+[connection signal="return_to_menu" from="Levels/Level1" to="." method="_on_level_1_return_to_menu"]

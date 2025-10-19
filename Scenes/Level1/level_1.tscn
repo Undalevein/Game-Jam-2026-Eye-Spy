@@ -1,11 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg5wrwwahia15"]
+[gd_scene load_steps=7 format=3 uid="uid://cg5wrwwahia15"]
 
 [ext_resource type="Script" uid="uid://ghwp6qghjmgb" path="res://Scenes/Level1/level_1.gd" id="1_pylp5"]
-[ext_resource type="Texture2D" uid="uid://diqibyuwdgmq8" path="res://Sprites/icon.svg" id="2_iyse3"]
+[ext_resource type="PackedScene" uid="uid://bkiom600l0aa6" path="res://Scenes/Player/player.tscn" id="2_iyse3"]
+[ext_resource type="PackedScene" uid="uid://xcbhh04btsa7" path="res://Scenes/GameInterface/game_interface.tscn" id="3_la6op"]
+[ext_resource type="PackedScene" uid="uid://cu4nq7khuo13p" path="res://Scenes/PauseMenu/pause_menu.tscn" id="4_0q28u"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_iyse3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0q28u"]
+size = Vector2(1052, 296)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_pylp5")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(639, 346)
-texture = ExtResource("2_iyse3")
+[node name="Player" parent="." instance=ExtResource("2_iyse3")]
+position = Vector2(635, 734)
+walking_speed = 300.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(733, 322)
+scale = Vector2(1049.5, 293.5)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+mesh = SubResource("QuadMesh_iyse3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.00095283985, 0)
+scale = Vector2(0.0009528347, 0.003407155)
+shape = SubResource("RectangleShape2D_0q28u")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="GameInterface" parent="UI" instance=ExtResource("3_la6op")]
+visible = false
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("4_0q28u")]
+visible = false
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="escape" from="UI/GameInterface" to="." method="_on_game_interface_escape"]
+[connection signal="rotate_left" from="UI/GameInterface" to="." method="_on_game_interface_rotate_left"]
+[connection signal="rotate_right" from="UI/GameInterface" to="." method="_on_game_interface_rotate_right"]
+[connection signal="stop" from="UI/GameInterface" to="." method="_on_game_interface_stop"]
+[connection signal="walk_forward" from="UI/GameInterface" to="." method="_on_game_interface_walk_forward"]
+[connection signal="continue_game" from="UI/PauseMenu" to="." method="_on_pause_menu_continue_game"]
+[connection signal="return_to_menu" from="UI/PauseMenu" to="." method="_on_pause_menu_return_to_menu"]

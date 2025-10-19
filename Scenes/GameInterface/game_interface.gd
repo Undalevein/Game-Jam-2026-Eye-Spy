@@ -1,8 +1,8 @@
 extends Control
 
-signal go_straight
-signal turn_left
-signal turn_right
+signal walk_forward
+signal rotate_left
+signal rotate_right
 signal stop
 signal escape
 
@@ -10,13 +10,13 @@ func _on_escape_button_pressed() -> void:
 	escape.emit()
 
 func _on_straight_button_pressed() -> void:
-	go_straight.emit()
+	walk_forward.emit()
 
 func _on_turn_left_button_pressed() -> void:
-	turn_left.emit()
+	rotate_left.emit()
 
 func _on_turn_right_button_pressed() -> void:
-	turn_right.emit()
+	rotate_right.emit()
 
 func _on_stop_button_pressed() -> void:
 	stop.emit()
