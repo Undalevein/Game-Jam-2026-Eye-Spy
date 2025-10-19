@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://pci8y50bj2mv"]
+[gd_scene load_steps=11 format=3 uid="uid://pci8y50bj2mv"]
 
 [ext_resource type="Script" uid="uid://clv6yr87povhf" path="res://Scenes/Level2/level_2.gd" id="1_hp1rf"]
 [ext_resource type="PackedScene" uid="uid://bkiom600l0aa6" path="res://Scenes/Player/player.tscn" id="2_dbdtm"]
@@ -8,13 +8,15 @@
 [ext_resource type="AudioStream" uid="uid://basg01v3ete4y" path="res://Sound/CAMERA BEEP.mp3" id="4_50k73"]
 [ext_resource type="AudioStream" uid="uid://b0nc6top31gvj" path="res://Sound/CONCRETE FOOTSTEPS.mp3" id="4_mt6hc"]
 [ext_resource type="PackedScene" uid="uid://ds1etbutpbpeb" path="res://Scenes/wall.tscn" id="4_od0tw"]
+[ext_resource type="PackedScene" uid="uid://c143oxi3rakq1" path="res://Scenes/crate_large.tscn" id="7_3yc6a"]
+[ext_resource type="PackedScene" uid="uid://cxc4xnt4ygwdb" path="res://Scenes/crate_medium.tscn" id="8_wo0g0"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_hp1rf")
 
 [node name="Player" parent="." instance=ExtResource("2_dbdtm")]
 process_mode = 1
-position = Vector2(635, 734)
+position = Vector2(399.00003, 936)
 rotation = 1.5707964
 motion_mode = 0
 walking_speed = 300.0
@@ -29,6 +31,26 @@ stream = ExtResource("4_50k73")
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="Player/Audio"]
 position = Vector2(-624.0003, -738.00037)
+scale = Vector2(1.0000005, 1.0000005)
+stream = ExtResource("4_mt6hc")
+
+[node name="CameraBeep2" type="AudioStreamPlayer2D" parent="Player/Audio"]
+position = Vector2(-635.0008, -11738.006)
+scale = Vector2(1.0000005, 1.0000005)
+stream = ExtResource("4_50k73")
+
+[node name="Footsteps2" type="AudioStreamPlayer2D" parent="Player/Audio"]
+position = Vector2(-624.0008, -11742.006)
+scale = Vector2(1.0000005, 1.0000005)
+stream = ExtResource("4_mt6hc")
+
+[node name="CameraBeep3" type="AudioStreamPlayer2D" parent="Player/Audio"]
+position = Vector2(985.99994, -11738.006)
+scale = Vector2(1.0000005, 1.0000005)
+stream = ExtResource("4_50k73")
+
+[node name="Footsteps3" type="AudioStreamPlayer2D" parent="Player/Audio"]
+position = Vector2(996.99994, -11742.006)
 scale = Vector2(1.0000005, 1.0000005)
 stream = ExtResource("4_mt6hc")
 
@@ -59,15 +81,17 @@ position = Vector2(12179.999, -6879.999)
 scale = Vector2(9.999998, 9.999998)
 
 [node name="Wall4" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(20810, -4619.999)
+position = Vector2(21329.998, -6879.999)
 scale = Vector2(9.999998, 9.999998)
 
 [node name="Wall5" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6119.999, -6879.999)
+position = Vector2(-6130, -6890)
+rotation = 1.5707964
 scale = Vector2(9.999998, 9.999998)
 
 [node name="Wall6" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6119.999, -6879.999)
+position = Vector2(-6129.999, 2280)
+rotation = 1.5707964
 scale = Vector2(9.999998, 9.999998)
 
 [node name="Wall7" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
@@ -79,52 +103,267 @@ position = Vector2(39689.996, -6879.999)
 scale = Vector2(9.999998, 9.999998)
 
 [node name="Wall9" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(48939.996, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall10" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6119.999, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall11" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6119.999, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall12" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6119.999, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall13" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6119.999, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall14" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6119.999, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall15" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6119.999, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall16" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6119.999, -6879.999)
+position = Vector2(48860, -6879.999)
 scale = Vector2(9.999998, 9.999998)
 
 [node name="Wall17" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6119.999, -6879.999)
+position = Vector2(58030, -6879.999)
 scale = Vector2(9.999998, 9.999998)
 
 [node name="Wall18" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6119.999, -6879.999)
+position = Vector2(67200, -6879.999)
 scale = Vector2(9.999998, 9.999998)
 
 [node name="Wall19" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6119.999, -6879.999)
+position = Vector2(76350, -6879.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall21" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(85530, -6879.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall22" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(94710, -6879.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall23" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(103880.01, -6879.999)
 scale = Vector2(9.999998, 9.999998)
 
 [node name="Wall20" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
-position = Vector2(-6119.999, -6879.999)
+position = Vector2(113050, -6879.999)
 scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall24" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(122220, -6879.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall25" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(131370, -6879.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall26" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(140550, -6879.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall27" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(149730, -6879.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall28" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(158900, -6879.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall29" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(168070, -6879.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall30" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(177240, -6879.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall31" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(186390, -6879.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall32" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(195570, -6879.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall33" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(204750, -6879.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall34" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(213920, -6879.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall35" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(58030, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall36" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(67200, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall37" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(76350, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall38" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(85530, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall39" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(94710, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall40" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(103880.01, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall41" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(113050, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall42" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(122220, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall43" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(131370, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall44" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(140550, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall45" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(149730, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall46" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(158900, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall47" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(168070, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall48" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(177240, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall49" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(186390, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall50" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(195570, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall51" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(204750, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall52" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(213920, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall10" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(-6129.999, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall11" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(3059.9998, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall12" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(12230, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall13" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(21389.998, 9329.999)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall14" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(30550, 9330)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall15" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(39739.996, 9330)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Wall16" parent="GameObjects/Walls" instance=ExtResource("4_od0tw")]
+position = Vector2(48909.992, 9330)
+scale = Vector2(9.999998, 9.999998)
+
+[node name="Node2D" type="Node2D" parent="GameObjects"]
+
+[node name="crate_large" parent="GameObjects/Node2D" instance=ExtResource("7_3yc6a")]
+position = Vector2(-2270, -2289.9998)
+rotation = 0.012538005
+scale = Vector2(181.39, 181.39)
+
+[node name="crate_large2" parent="GameObjects/Node2D" instance=ExtResource("7_3yc6a")]
+position = Vector2(-2179.9998, 6859.9995)
+rotation = 0.052359883
+scale = Vector2(181.39, 181.39)
+
+[node name="crate_large4" parent="GameObjects/Node2D" instance=ExtResource("7_3yc6a")]
+position = Vector2(24100.002, -710.00024)
+rotation = 1.4137167
+scale = Vector2(181.39, 181.39)
+
+[node name="crate_large5" parent="GameObjects/Node2D" instance=ExtResource("7_3yc6a")]
+position = Vector2(33890, 6730)
+rotation = -0.08726646
+scale = Vector2(181.39, 181.39)
+
+[node name="crate_large7" parent="GameObjects/Node2D" instance=ExtResource("7_3yc6a")]
+position = Vector2(41760, 7070)
+rotation = 0.05235988
+scale = Vector2(181.39, 181.39)
+
+[node name="crate_large8" parent="GameObjects/Node2D" instance=ExtResource("7_3yc6a")]
+position = Vector2(42770, 839.9998)
+rotation = -1.6842427
+scale = Vector2(181.39, 181.39)
+
+[node name="crate_large9" parent="GameObjects/Node2D" instance=ExtResource("7_3yc6a")]
+position = Vector2(55960, -540)
+rotation = -1.4748032
+scale = Vector2(181.39, 181.39)
+
+[node name="crate_large6" parent="GameObjects/Node2D" instance=ExtResource("7_3yc6a")]
+position = Vector2(29170.002, -770)
+rotation = 1.5882496
+scale = Vector2(181.39, 181.39)
+
+[node name="crate_large3" parent="GameObjects/Node2D" instance=ExtResource("7_3yc6a")]
+position = Vector2(11599.999, 5510)
+rotation = 1.5969763
+scale = Vector2(181.39, 181.39)
+
+[node name="crate_medium" parent="GameObjects/Node2D" instance=ExtResource("8_wo0g0")]
+position = Vector2(5140, 4919.9995)
+rotation = -1.5402701
+scale = Vector2(141.965, 141.965)
+
+[node name="crate_medium5" parent="GameObjects/Node2D" instance=ExtResource("8_wo0g0")]
+position = Vector2(33750, -3000)
+rotation = -3.1904619
+scale = Vector2(141.965, 141.965)
+
+[node name="crate_medium7" parent="GameObjects/Node2D" instance=ExtResource("8_wo0g0")]
+position = Vector2(55460.004, 7759.999)
+rotation = -3.1904619
+scale = Vector2(141.965, 141.965)
+
+[node name="crate_medium6" parent="GameObjects/Node2D" instance=ExtResource("8_wo0g0")]
+position = Vector2(25090.002, 5450)
+rotation = -1.5402701
+scale = Vector2(141.965, 141.965)
+
+[node name="crate_medium8" parent="GameObjects/Node2D" instance=ExtResource("8_wo0g0")]
+position = Vector2(15380, 6820)
+rotation = -1.6458455
+scale = Vector2(141.965, 141.965)
+
+[node name="crate_medium3" parent="GameObjects/Node2D" instance=ExtResource("8_wo0g0")]
+position = Vector2(8700.001, -1629.9999)
+rotation = 0.04170525
+scale = Vector2(141.965, 141.965)
+
+[node name="crate_medium4" parent="GameObjects/Node2D" instance=ExtResource("8_wo0g0")]
+position = Vector2(13370.001, -1649.9999)
+rotation = -0.10471976
+scale = Vector2(141.965, 141.965)
+
+[node name="crate_medium2" parent="GameObjects/Node2D" instance=ExtResource("8_wo0g0")]
+position = Vector2(5010, 19.999842)
+rotation = -1.6469852
+scale = Vector2(141.965, 141.965)
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
