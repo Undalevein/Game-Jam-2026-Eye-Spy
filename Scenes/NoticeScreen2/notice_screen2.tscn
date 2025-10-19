@@ -15,7 +15,7 @@ font = ExtResource("2_e07pw")
 font_size = 50
 font_color = Color(0.38431373, 1, 0, 1)
 
-[node name="NoticeScreen" type="Control"]
+[node name="NoticeScreen2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -15,11 +15,11 @@ func start() -> void:
 	get_tree().paused = false
 	playing_level = true
 	$Player.turn_on_camera()
-	$Player/Audio/ConstructionAmbiance.playing = true
+	$Player/Audio/IntroductionVoiceline.playing = true
 
 func _process(_delta: float):
 	pass
-		
+
 func _input(_event: InputEvent) -> void:
 	if not playing_level:
 		return
@@ -33,15 +33,23 @@ func _on_game_interface_escape() -> void:
 
 func _on_game_interface_walk_forward() -> void:
 	$Player.walk_forward()
+	$Player/Audio/GOSTRAIGHT_Voiceline.playing = false
+	$Player/Audio/GOSTRAIGHT_Voiceline.playing = true
 	$Player/Audio/Footsteps.playing = true
 
 func _on_game_interface_rotate_left() -> void:
+	$Player/Audio/TURNLEFT_Voiceline.playing = false
+	$Player/Audio/TURNLEFT_Voiceline.playing = true
 	$Player.rotate_left()
 
 func _on_game_interface_rotate_right() -> void:
+	$Player/Audio/TURNRIGHT_Voiceline.playing = false
+	$Player/Audio/TURNRIGHT_Voiceline.playing = true
 	$Player.rotate_right()
 
 func _on_game_interface_stop() -> void:
+	$Player/Audio/STOP_Voiceline.playing = false
+	$Player/Audio/STOP_Voiceline.playing = true
 	$Player.stop()
 	$Player/Audio/Footsteps.playing = false
 
@@ -61,6 +69,9 @@ func close_level() -> void:
 	playing_level = false
 	$Player.position = initial_player_position
 	$Player.rotation = initial_player_rotation
+	$Player/Audio/Footsteps.playing = false
+	$Player/Audio/ConstructionAmbiance.playing = false
+	$Player.stop()
 
 func _on_player_die() -> void:
 	$Player.position = initial_player_position
@@ -72,3 +83,7 @@ func _on_level_complete_trigger_body_entered(body: Node2D) -> void:
 		$Player/Audio/ConstructionAmbiance.playing = false
 		close_level()
 		level_completed.emit()
+
+func _on_notice_screen_closed_window() -> void:
+		$Player/Audio/ConstructionAmbiance.playing = true
+		$Player/Audio/IntroductionVoiceline.playing = false

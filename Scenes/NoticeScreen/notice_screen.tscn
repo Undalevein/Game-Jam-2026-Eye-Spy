@@ -43,8 +43,9 @@ offset_top = 85.0
 offset_right = 400.0
 offset_bottom = 186.0
 grow_horizontal = 2
-text = "ATTENTION AGENT!"
+text = "To: Agent James Blind"
 label_settings = SubResource("LabelSettings_s7cd6")
+horizontal_alignment = 1
 
 [node name="Text" type="Label" parent="."]
 layout_mode = 1
@@ -59,9 +60,10 @@ offset_right = 825.5
 offset_bottom = 207.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "We have just discovered our enemy's base, and it's a very dangerous enemy. We lost all but one agent, Agent James Blind. Luckily, he is one of our best agent, but he is currently blind. You must guide him, navigating him through this infiltration operation.
+text = "Alright agent, it's your lucky day.
+All of our other operatives perished in a freak accident, so you’re all we got left. Dr. Psycho and his pals at IRIS are building a big dangerous weapon thing and we need you to infiltrate his facility and take it down. I’ll be your eyes on this operation, literally. So just listen to my commands, and you’ll be just fine. 
 
-Good Luck, as this is the most important infiltration ever."
+Good luck, Agent."
 label_settings = SubResource("LabelSettings_3oy77")
 horizontal_alignment = 1
 autowrap_mode = 3

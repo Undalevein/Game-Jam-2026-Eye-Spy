@@ -1,16 +1,21 @@
-[gd_scene load_steps=18 format=3 uid="uid://cg5wrwwahia15"]
+[gd_scene load_steps=23 format=3 uid="uid://cg5wrwwahia15"]
 
 [ext_resource type="Script" uid="uid://ghwp6qghjmgb" path="res://Scenes/Level1/level_1.gd" id="1_pylp5"]
 [ext_resource type="PackedScene" uid="uid://bkiom600l0aa6" path="res://Scenes/Player/player.tscn" id="2_iyse3"]
 [ext_resource type="PackedScene" uid="uid://xcbhh04btsa7" path="res://Scenes/GameInterface/game_interface.tscn" id="3_la6op"]
 [ext_resource type="PackedScene" uid="uid://dng6dd8hxc7xm" path="res://Scenes/fence.tscn" id="3_ojcjo"]
+[ext_resource type="AudioStream" uid="uid://jky352k4jnjr" path="res://Sound/Voicelines/INTRODUCTION.wav" id="3_vfyie"]
+[ext_resource type="AudioStream" uid="uid://dvthoh2n5twn1" path="res://Sound/Voicelines/TURN LEFT.wav" id="3_yhq2l"]
 [ext_resource type="PackedScene" uid="uid://cu4nq7khuo13p" path="res://Scenes/PauseMenu/pause_menu.tscn" id="4_0q28u"]
 [ext_resource type="PackedScene" uid="uid://cxc4xnt4ygwdb" path="res://Scenes/crate_medium.tscn" id="4_cirk1"]
+[ext_resource type="AudioStream" uid="uid://cdpk8vwg6t8me" path="res://Sound/Voicelines/TURN RIGHT.wav" id="4_vfyie"]
+[ext_resource type="AudioStream" uid="uid://cpvku5gr8epal" path="res://Sound/Voicelines/GO STRAIGHT.wav" id="5_2ugre"]
 [ext_resource type="PackedScene" uid="uid://bo8uw4okbm14n" path="res://Scenes/guard.tscn" id="5_6bneh"]
 [ext_resource type="PackedScene" uid="uid://cbu4038rf5v2q" path="res://Scenes/tires.tscn" id="5_s0xjy"]
 [ext_resource type="AudioStream" uid="uid://cmsg5po2tyllr" path="res://Sound/construction-site-49508.mp3" id="6_6bneh"]
 [ext_resource type="AudioStream" uid="uid://u3ooyk75abg4" path="res://Sound/DIRT FOOTSTEPS.mp3" id="6_cirk1"]
-[ext_resource type="PackedScene" uid="uid://dnbnx283jyb6x" path="res://Scenes/Level1/dump_truck.tscn" id="9_4ibnj"]
+[ext_resource type="AudioStream" uid="uid://coasc1iqmoaff" path="res://Sound/Voicelines/STOPPPPP.wav" id="6_wgsrm"]
+[ext_resource type="PackedScene" uid="uid://dnbnx283jyb6x" path="res://Scenes/dump_truck.tscn" id="9_4ibnj"]
 [ext_resource type="PackedScene" uid="uid://d72tpjlsm3m" path="res://Scenes/level_complete_trigger.tscn" id="9_ajn4s"]
 [ext_resource type="Texture2D" uid="uid://betguv1wkw13y" path="res://Sprites/Shit.png" id="9_puyxw"]
 [ext_resource type="Texture2D" uid="uid://ba88gvbtl1v4s" path="res://Sprites/Shit Turf.png" id="10_7umgn"]
@@ -31,6 +36,26 @@ walking_speed = 300.0
 [node name="Audio" type="Node2D" parent="Player"]
 rotation = -1.5707964
 scale = Vector2(99.99999, 99.99999)
+
+[node name="IntroductionVoiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("3_vfyie")
+
+[node name="TURNLEFT_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("3_yhq2l")
+
+[node name="TURNRIGHT_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("4_vfyie")
+
+[node name="GOSTRAIGHT_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("5_2ugre")
+
+[node name="STOP_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("6_wgsrm")
 
 [node name="ConstructionAmbiance" type="AudioStreamPlayer2D" parent="Player/Audio"]
 scale = Vector2(0.99999994, 0.99999994)
@@ -617,3 +642,4 @@ visible = false
 [connection signal="walk_forward" from="UI/GameInterface" to="." method="_on_game_interface_walk_forward"]
 [connection signal="continue_game" from="UI/PauseMenu" to="." method="_on_pause_menu_continue_game"]
 [connection signal="return_to_menu" from="UI/PauseMenu" to="." method="_on_pause_menu_return_to_menu"]
+[connection signal="closed_window" from="UI/NoticeScreen" to="." method="_on_notice_screen_closed_window"]
