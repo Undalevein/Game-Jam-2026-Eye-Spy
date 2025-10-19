@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3fvcpaqqymi"]
+
+[ext_resource type="Texture2D" uid="uid://bna7bcaspqihr" path="res://Sprites/PlayerTemp.png" id="1_iuis7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ho4jl"]
+
+[node name="mine" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_ho4jl")
+
+[node name="MeshInstance2D" type="Sprite2D" parent="."]
+position = Vector2(0, 0.25000057)
+scale = Vector2(0.03617571, 0.03488372)
+texture = ExtResource("1_iuis7")

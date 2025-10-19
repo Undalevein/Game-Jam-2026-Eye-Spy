@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcbrm1u85lrkq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1kal"]
+size = Vector2(34, 20)
+
+[sub_resource type="QuadMesh" id="QuadMesh_qlqds"]
+
+[node name="office_chair" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u1kal")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(34, 20)
+mesh = SubResource("QuadMesh_qlqds")

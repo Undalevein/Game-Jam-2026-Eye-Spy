@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://qv35cyd4sni6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snius"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ic0dy"]
+
+[node name="forklift" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_snius")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(20, 20)
+mesh = SubResource("QuadMesh_ic0dy")

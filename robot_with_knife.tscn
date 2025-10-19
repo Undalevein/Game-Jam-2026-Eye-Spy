@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4ha7iuuwqw0i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tq32o"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_jg3wn"]
+
+[node name="robot_with_knife" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_tq32o")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(9.536743e-07, -9.536743e-07)
+scale = Vector2(39.999996, 40)
+mesh = SubResource("QuadMesh_jg3wn")

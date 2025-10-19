@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnbnx283jyb6x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3oay"]
+size = Vector2(68, 20)
+
+[sub_resource type="QuadMesh" id="QuadMesh_p3oay"]
+
+[node name="dump_truck" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_p3oay")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(1.9073486e-06, -4.7683716e-07)
+scale = Vector2(102, 30)
+mesh = SubResource("QuadMesh_p3oay")
