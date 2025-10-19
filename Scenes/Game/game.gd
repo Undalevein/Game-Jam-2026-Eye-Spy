@@ -21,8 +21,6 @@ var pause_menu = $UI/Camera2D/CanvasLayer/PauseMenu
 @onready
 var win_menu = $UI/Camera2D/CanvasLayer/Win
 @onready
-var background = $Background
-@onready
 var level1 = $Levels/Level1
 
 var initial_camera_position = Vector2()
@@ -35,14 +33,6 @@ func _process(delta: float) -> void:
 		return
 	if Input.is_action_just_pressed("Escape"):
 		pause_menu.visible = not pause_menu.visible
-	if Input.is_action_pressed("PanUp"):
-		camera.translate(Vector2(0.0, Y_PAN_SPEED))
-	if Input.is_action_pressed("PanDown"):
-		camera.translate(Vector2(0.0, -Y_PAN_SPEED))
-	if Input.is_action_pressed("PanLeft"):
-		camera.translate(Vector2(X_PAN_SPEED, 0.0))
-	if Input.is_action_pressed("PanRight"):
-		camera.translate(Vector2(-X_PAN_SPEED, 0.0))
 
 func start_level() -> void:
 	in_level = current_level >= 1 and current_level <= 5
