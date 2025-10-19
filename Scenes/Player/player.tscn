@@ -10,6 +10,9 @@ radius = 582.0034
 scale = Vector2(0.1, 0.1)
 script = ExtResource("1_uvnfx")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.99999994, 0.99999994)
+
 [node name="PlayerTemp" type="Sprite2D" parent="."]
 texture = ExtResource("2_a3d8c")
 

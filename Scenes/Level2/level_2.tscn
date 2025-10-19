@@ -1,6 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://pci8y50bj2mv"]
+[gd_scene load_steps=7 format=3 uid="uid://pci8y50bj2mv"]
 
 [ext_resource type="Script" uid="uid://clv6yr87povhf" path="res://Scenes/Level2/level_2.gd" id="1_hp1rf"]
+[ext_resource type="PackedScene" uid="uid://bkiom600l0aa6" path="res://Scenes/Player/player.tscn" id="2_dbdtm"]
+[ext_resource type="PackedScene" uid="uid://xcbhh04btsa7" path="res://Scenes/GameInterface/game_interface.tscn" id="3_gted6"]
+[ext_resource type="PackedScene" uid="uid://cu4nq7khuo13p" path="res://Scenes/PauseMenu/pause_menu.tscn" id="4_0u6qp"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_od0tw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50k73"]
+size = Vector2(1052, 296)
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_hp1rf")
+
+[node name="Player" parent="." instance=ExtResource("2_dbdtm")]
+process_mode = 1
+position = Vector2(635, 734)
+walking_speed = 300.0
+
+[node name="GameObjects" type="Node2D" parent="."]
+process_mode = 1
+position = Vector2(635, 734)
+scale = Vector2(0.1, 0.1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GameObjects"]
+position = Vector2(980, -4120)
+scale = Vector2(10494.999, 2934.9998)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="GameObjects/StaticBody2D"]
+mesh = SubResource("QuadMesh_od0tw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameObjects/StaticBody2D"]
+position = Vector2(-0.00095283985, 0)
+scale = Vector2(0.0009528347, 0.003407155)
+shape = SubResource("RectangleShape2D_50k73")
+
+[node name="UI" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="GameInterface" parent="UI" instance=ExtResource("3_gted6")]
+visible = false
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("4_0u6qp")]
+visible = false

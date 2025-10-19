@@ -4,18 +4,22 @@ signal return_to_menu
 signal level_completed
 
 func _on_visibility_changed() -> void:
+	# Check if we are starting the game.
 	if visible:
 		$UI/GameInterface.visible = true 
+		get_tree().paused = false
 
 func _process(delta: float):
 	pass
 		
-func _input(input: InputEvent):
+func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Escape"):
 		$UI/PauseMenu.visible = not $UI/PauseMenu.visible
+		get_tree().paused = not get_tree().paused
 
 func _on_game_interface_escape() -> void:
 	$UI/PauseMenu.visible = true
+	get_tree().paused = true
 
 func _on_game_interface_walk_forward() -> void:
 	$Player.walk_forward()
@@ -31,6 +35,7 @@ func _on_game_interface_stop() -> void:
 
 func _on_pause_menu_continue_game() -> void:
 	$UI/PauseMenu.visible = false
+	get_tree().paused = false
 
 func _on_pause_menu_return_to_menu() -> void:
 	return_to_menu.emit()
