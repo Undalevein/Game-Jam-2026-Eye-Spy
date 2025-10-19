@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://bme5w3mijp8xs"]
 
+[ext_resource type="Texture2D" uid="uid://d2655qm75p6of" path="res://Sprites/Laser.png" id="1_r1bh0"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oes6l"]
 size = Vector2(492, 20)
-
-[sub_resource type="QuadMesh" id="QuadMesh_fn5yt"]
 
 [node name="laser" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_oes6l")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(-1.2010336e-05, 1.1920929e-07)
-scale = Vector2(492, 20)
-mesh = SubResource("QuadMesh_fn5yt")
+[node name="Laser" type="Sprite2D" parent="."]
+position = Vector2(-1, 30.999998)
+scale = Vector2(0.48242188, 0.4501953)
+texture = ExtResource("1_r1bh0")

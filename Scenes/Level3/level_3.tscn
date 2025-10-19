@@ -1,11 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://cq8tcw283lqtk"]
+[gd_scene load_steps=14 format=3 uid="uid://cq8tcw283lqtk"]
 
 [ext_resource type="Script" uid="uid://ciscmsu263r4g" path="res://Scenes/Level3/level_3.gd" id="1_ngiah"]
 [ext_resource type="PackedScene" uid="uid://bkiom600l0aa6" path="res://Scenes/Player/player.tscn" id="2_mmvth"]
+[ext_resource type="PackedScene" uid="uid://dhqgwfunu3r6r" path="res://Scenes/crate_small.tscn" id="3_47qmd"]
 [ext_resource type="PackedScene" uid="uid://ds1etbutpbpeb" path="res://Scenes/wall.tscn" id="3_62ljv"]
 [ext_resource type="PackedScene" uid="uid://xcbhh04btsa7" path="res://Scenes/GameInterface/game_interface.tscn" id="3_t2rjc"]
 [ext_resource type="PackedScene" uid="uid://cu4nq7khuo13p" path="res://Scenes/PauseMenu/pause_menu.tscn" id="4_62ljv"]
 [ext_resource type="PackedScene" uid="uid://bhwnbjrgtca6v" path="res://Scenes/laser_box.tscn" id="4_oo3du"]
+[ext_resource type="PackedScene" uid="uid://cxc4xnt4ygwdb" path="res://Scenes/crate_medium.tscn" id="4_rskgy"]
+[ext_resource type="PackedScene" uid="uid://bme5w3mijp8xs" path="res://Scenes/laser.tscn" id="5_oo3du"]
+[ext_resource type="PackedScene" uid="uid://chvgq0q3d4esx" path="res://Scenes/laser_end.tscn" id="8_aht15"]
+[ext_resource type="PackedScene" uid="uid://c143oxi3rakq1" path="res://Scenes/crate_large.tscn" id="9_rskgy"]
+[ext_resource type="PackedScene" uid="uid://cckye4ixgsbsm" path="res://Scenes/Level3/lava_background.tscn" id="10_aht15"]
+[ext_resource type="Texture2D" uid="uid://d0tpj21o16u3e" path="res://Sprites/Plank.png" id="11_4oxwn"]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_ngiah")
@@ -19,6 +26,39 @@ walking_speed = 300.0
 process_mode = 1
 position = Vector2(635, 734)
 scale = Vector2(0.1, 0.1)
+
+[node name="crate_large" parent="GameObjects" instance=ExtResource("9_rskgy")]
+position = Vector2(66909.99, -4140)
+rotation = 0.34906584
+scale = Vector2(60, 60)
+
+[node name="crate_large3" parent="GameObjects" instance=ExtResource("9_rskgy")]
+position = Vector2(70079.99, 1300.002)
+rotation = 2.6162486
+scale = Vector2(60, 60)
+
+[node name="crate_large2" parent="GameObjects" instance=ExtResource("9_rskgy")]
+position = Vector2(59639.992, -1939.998)
+rotation = 0.710349
+scale = Vector2(60, 60)
+
+[node name="crate_small" parent="GameObjects" instance=ExtResource("3_47qmd")]
+position = Vector2(55960.004, 610.00024)
+scale = Vector2(199.99997, 199.99997)
+
+[node name="crate_small2" parent="GameObjects" instance=ExtResource("3_47qmd")]
+position = Vector2(77169.99, 3710)
+scale = Vector2(120, 120)
+
+[node name="crate_medium" parent="GameObjects" instance=ExtResource("4_rskgy")]
+position = Vector2(64869.992, 4219.9985)
+rotation = 0.3874631
+scale = Vector2(199.99995, 199.99995)
+
+[node name="crate_medium2" parent="GameObjects" instance=ExtResource("4_rskgy")]
+position = Vector2(74380, -4420.0005)
+rotation = -0.26005405
+scale = Vector2(199.99995, 199.99995)
 
 [node name="Walls" type="Node2D" parent="GameObjects"]
 position = Vector2(2079.9998, -2269.9998)
@@ -50,7 +90,7 @@ rotation = 1.5707964
 scale = Vector2(9.999998, 9.999998)
 
 [node name="Wall7" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(28279.996, -7339.999)
+position = Vector2(30499.996, -6869.999)
 scale = Vector2(9.999998, 9.999998)
 
 [node name="Wall8" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
@@ -177,33 +217,115 @@ scale = Vector2(9.999998, 9.999998)
 position = Vector2(48909.992, 9330)
 scale = Vector2(9.999998, 9.999998)
 
-[node name="LaserBox" parent="GameObjects" instance=ExtResource("4_oo3du")]
-position = Vector2(44890, -3300.0002)
-scale = Vector2(99.99999, 99.99999)
+[node name="Laser1" type="Node2D" parent="GameObjects"]
+visible = false
 
-[node name="LaserBox2" parent="GameObjects" instance=ExtResource("4_oo3du")]
-position = Vector2(52960.004, 3659.9998)
-scale = Vector2(99.99999, 99.99999)
+[node name="LaserBox" parent="GameObjects/Laser1" instance=ExtResource("4_oo3du")]
+position = Vector2(50430, -3109.9998)
+rotation = 2.5586526
+scale = Vector2(200, 200)
 
-[node name="LaserBox3" parent="GameObjects" instance=ExtResource("4_oo3du")]
-position = Vector2(58920.004, 229.99976)
-scale = Vector2(99.99999, 99.99999)
+[node name="laser" parent="GameObjects/Laser1" instance=ExtResource("5_oo3du")]
+position = Vector2(53610, 1499.9999)
+rotation = 0.97214836
+scale = Vector2(9, 9)
 
-[node name="LaserBox4" parent="GameObjects" instance=ExtResource("4_oo3du")]
-position = Vector2(62460, -2260.0002)
-scale = Vector2(99.99999, 99.99999)
+[node name="LaserEnd" parent="GameObjects/Laser1" instance=ExtResource("8_aht15")]
+position = Vector2(56009.996, 5019.999)
+rotation = -2.1816616
+scale = Vector2(3.999999, 3.999999)
 
-[node name="LaserBox5" parent="GameObjects" instance=ExtResource("4_oo3du")]
-position = Vector2(68740.01, -4410.0005)
-scale = Vector2(99.99999, 99.99999)
+[node name="Laser2" type="Node2D" parent="GameObjects"]
 
-[node name="LaserBox6" parent="GameObjects" instance=ExtResource("4_oo3du")]
-position = Vector2(79550, 1600.0001)
-scale = Vector2(99.99999, 99.99999)
+[node name="LaserBox" parent="GameObjects/Laser2" instance=ExtResource("4_oo3du")]
+position = Vector2(55289.996, -5850.0005)
+rotation = 3.0351276
+scale = Vector2(200, 200)
 
-[node name="LaserBox7" parent="GameObjects" instance=ExtResource("4_oo3du")]
-position = Vector2(73590, -39.999878)
-scale = Vector2(99.99999, 99.99999)
+[node name="LaserEnd" parent="GameObjects/Laser2" instance=ExtResource("8_aht15")]
+position = Vector2(55740.004, -2720.0002)
+rotation = -1.6929693
+scale = Vector2(3.999999, 3.999999)
+
+[node name="Laser3" type="Node2D" parent="GameObjects"]
+
+[node name="LaserBox2" parent="GameObjects/Laser3" instance=ExtResource("4_oo3du")]
+position = Vector2(64699.992, 1440.0005)
+rotation = 0.37350044
+scale = Vector2(199.99995, 199.99995)
+
+[node name="LaserEnd2" parent="GameObjects/Laser3" instance=ExtResource("8_aht15")]
+position = Vector2(65780, -1639.999)
+rotation = 1.9373155
+scale = Vector2(3.9999986, 3.9999986)
+
+[node name="Laser4" type="Node2D" parent="GameObjects"]
+
+[node name="LaserBox2" parent="GameObjects/Laser4" instance=ExtResource("4_oo3du")]
+position = Vector2(60580, -2910.0002)
+rotation = 0.6981317
+scale = Vector2(199.99995, 199.99995)
+
+[node name="LaserEnd2" parent="GameObjects/Laser4" instance=ExtResource("8_aht15")]
+position = Vector2(62760.004, -5680.0015)
+rotation = 2.2619467
+scale = Vector2(3.9999986, 3.9999986)
+
+[node name="Laser5" type="Node2D" parent="GameObjects"]
+
+[node name="LaserBox2" parent="GameObjects/Laser5" instance=ExtResource("4_oo3du")]
+position = Vector2(70650, 2500.0005)
+rotation = 2.6406832
+scale = Vector2(199.99995, 199.99995)
+
+[node name="LaserEnd2" parent="GameObjects/Laser5" instance=ExtResource("8_aht15")]
+position = Vector2(72420, 5500.003)
+rotation = 4.2044983
+scale = Vector2(3.9999986, 3.9999986)
+
+[node name="Laser6" type="Node2D" parent="GameObjects"]
+
+[node name="LaserBox2" parent="GameObjects/Laser6" instance=ExtResource("4_oo3du")]
+position = Vector2(74809.99, -2019.9994)
+rotation = 2.8344147
+scale = Vector2(199.99995, 199.99995)
+
+[node name="LaserEnd2" parent="GameObjects/Laser6" instance=ExtResource("8_aht15")]
+position = Vector2(75930.01, 1030.0006)
+rotation = 4.3982296
+scale = Vector2(3.9999986, 3.9999986)
+
+[node name="Background" type="Node2D" parent="GameObjects"]
+
+[node name="LavaBackground" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+position = Vector2(91550, -3949.9995)
+scale = Vector2(4.991206, 6.4018526)
+
+[node name="LavaBackground2" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+position = Vector2(96629.99, -3940.0002)
+scale = Vector2(4.991206, 6.4018526)
+
+[node name="LavaBackground5" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+position = Vector2(101720, -3939.9995)
+scale = Vector2(4.991206, 6.4018526)
+
+[node name="LavaBackground3" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+position = Vector2(91500, 3730)
+scale = Vector2(4.991206, 6.4018526)
+
+[node name="LavaBackground4" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+position = Vector2(96590, 3750)
+scale = Vector2(4.991206, 6.4018526)
+
+[node name="LavaBackground6" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+position = Vector2(101689.99, 3770)
+scale = Vector2(4.991206, 6.4018526)
+
+[node name="Plank" type="Sprite2D" parent="GameObjects"]
+position = Vector2(96643.81, -143.27905)
+rotation = 1.5707964
+scale = Vector2(4.866404, 15.017609)
+texture = ExtResource("11_4oxwn")
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3

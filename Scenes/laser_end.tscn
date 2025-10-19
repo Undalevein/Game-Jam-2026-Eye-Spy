@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://chvgq0q3d4esx"]
+
+[ext_resource type="Texture2D" uid="uid://ueuktumffcsa" path="res://Sprites/Laser end.png" id="1_asuo5"]
+
+[node name="LaserEnd" type="StaticBody2D"]
+
+[node name="LaserEnd" type="Sprite2D" parent="."]
+position = Vector2(1, 66)
+texture = ExtResource("1_asuo5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-511, -144, -511, 128, -456, 138, -415, 25, 513, 35, 512, -28, -439, -36, -420, -112)
