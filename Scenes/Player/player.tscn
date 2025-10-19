@@ -12,6 +12,7 @@ script = ExtResource("1_uvnfx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.99999994, 0.99999994)
+offset = Vector2(400, 0)
 
 [node name="PlayerTemp" type="Sprite2D" parent="."]
 texture = ExtResource("2_a3d8c")
