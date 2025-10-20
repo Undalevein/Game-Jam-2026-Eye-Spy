@@ -59,9 +59,9 @@ offset_right = 825.5
 offset_bottom = 207.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "We have just discovered our enemy's base, and it's a very dangerous enemy. We lost all but one agent, Agent James Blind. Luckily, he is one of our best agent, but he is currently blind. You must guide him, navigating him through this infiltration operation.
+text = "You are almost there agent. You will encounter Dr. Psycho.
 
-Good Luck, as this is the most important infiltration ever."
+Be careful, as he is hard to catch."
 label_settings = SubResource("LabelSettings_3oy77")
 horizontal_alignment = 1
 autowrap_mode = 3

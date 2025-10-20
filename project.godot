@@ -25,6 +25,7 @@ window/size/mode=3
 
 Hazard="Things that kill the player"
 Player=""
+BigBad=""
 
 [input]
 

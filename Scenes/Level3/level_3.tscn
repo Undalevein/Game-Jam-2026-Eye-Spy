@@ -1,34 +1,189 @@
-[gd_scene load_steps=17 format=3 uid="uid://cq8tcw283lqtk"]
+[gd_scene load_steps=29 format=3 uid="uid://cq8tcw283lqtk"]
 
 [ext_resource type="Script" uid="uid://ciscmsu263r4g" path="res://Scenes/Level3/level_3.gd" id="1_ngiah"]
+[ext_resource type="PackedScene" uid="uid://iai1i6mhnvxd" path="res://Scenes/BigBad/bigbad.tscn" id="2_dv2h8"]
 [ext_resource type="PackedScene" uid="uid://bkiom600l0aa6" path="res://Scenes/Player/player.tscn" id="2_mmvth"]
 [ext_resource type="PackedScene" uid="uid://dhqgwfunu3r6r" path="res://Scenes/crate_small.tscn" id="3_47qmd"]
 [ext_resource type="PackedScene" uid="uid://ds1etbutpbpeb" path="res://Scenes/wall.tscn" id="3_62ljv"]
 [ext_resource type="PackedScene" uid="uid://xcbhh04btsa7" path="res://Scenes/GameInterface/game_interface.tscn" id="3_t2rjc"]
 [ext_resource type="PackedScene" uid="uid://cu4nq7khuo13p" path="res://Scenes/PauseMenu/pause_menu.tscn" id="4_62ljv"]
+[ext_resource type="AudioStream" uid="uid://dijar5kqsckgs" path="res://Sound/FACTORY AMBIENCE.wav" id="4_ax1k4"]
 [ext_resource type="PackedScene" uid="uid://bhwnbjrgtca6v" path="res://Scenes/laser_box.tscn" id="4_oo3du"]
 [ext_resource type="PackedScene" uid="uid://cxc4xnt4ygwdb" path="res://Scenes/crate_medium.tscn" id="4_rskgy"]
+[ext_resource type="AudioStream" uid="uid://ihncch43qacf" path="res://Sound/METAL FOOTSTEPS.mp3" id="4_y5toa"]
 [ext_resource type="PackedScene" uid="uid://bme5w3mijp8xs" path="res://Scenes/laser.tscn" id="5_oo3du"]
+[ext_resource type="AudioStream" uid="uid://dvthoh2n5twn1" path="res://Sound/Voicelines/TURN LEFT.wav" id="5_y5toa"]
+[ext_resource type="AudioStream" uid="uid://cdpk8vwg6t8me" path="res://Sound/Voicelines/TURN RIGHT.wav" id="6_e2id6"]
+[ext_resource type="AudioStream" uid="uid://cpvku5gr8epal" path="res://Sound/Voicelines/GO STRAIGHT.wav" id="7_4arjt"]
 [ext_resource type="PackedScene" uid="uid://chvgq0q3d4esx" path="res://Scenes/laser_end.tscn" id="8_aht15"]
+[ext_resource type="AudioStream" uid="uid://coasc1iqmoaff" path="res://Sound/Voicelines/STOPPPPP.wav" id="8_ftuul"]
+[ext_resource type="Texture2D" uid="uid://b5enub2b1lx34" path="res://Sprites/self_destruct.png" id="9_0fms2"]
 [ext_resource type="PackedScene" uid="uid://c143oxi3rakq1" path="res://Scenes/crate_large.tscn" id="9_rskgy"]
 [ext_resource type="PackedScene" uid="uid://cckye4ixgsbsm" path="res://Scenes/Level3/lava_background.tscn" id="10_aht15"]
 [ext_resource type="Texture2D" uid="uid://d0tpj21o16u3e" path="res://Sprites/Plank.png" id="11_4oxwn"]
 [ext_resource type="Texture2D" uid="uid://dy22ij0t1jqg0" path="res://Sprites/Metal Floor.png" id="12_orgcr"]
 [ext_resource type="Texture2D" uid="uid://by2qa5hbn00r4" path="res://Sprites/Water.png" id="13_lviwr"]
 [ext_resource type="Texture2D" uid="uid://cryqdstq3nvpw" path="res://Sprites/DarkCrate.png" id="16_8rser"]
+[ext_resource type="PackedScene" uid="uid://d72tpjlsm3m" path="res://Scenes/level_complete_trigger.tscn" id="24_k6ro3"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tti6a"]
+distance = 34.846497
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lviwr"]
+size = Vector2(170.85872, 82.69968)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30m1a"]
+size = Vector2(65.516235, 20)
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_ngiah")
 
 [node name="Player" parent="." instance=ExtResource("2_mmvth")]
 process_mode = 1
-position = Vector2(635, 734)
+position = Vector2(631.0005, 686)
+rotation = 1.5707964
 walking_speed = 300.0
+
+[node name="Audio" type="Node2D" parent="Player"]
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(1.0000001, 1.0000001)
+stream = ExtResource("4_y5toa")
+
+[node name="FactoryAmbiance" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(1.0000002, 1.0000002)
+stream = ExtResource("4_ax1k4")
+volume_db = -5.56
+max_distance = 2807.0
+attenuation = 1.4142189
+
+[node name="TURNLEFT_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("5_y5toa")
+
+[node name="TURNRIGHT_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("6_e2id6")
+
+[node name="GOSTRAIGHT_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("7_4arjt")
+
+[node name="STOP_Voiceline" type="AudioStreamPlayer2D" parent="Player/Audio"]
+scale = Vector2(0.9999999, 0.9999999)
+stream = ExtResource("8_ftuul")
+
+[node name="BigBad" parent="." groups=["Player"] instance=ExtResource("2_dv2h8")]
+position = Vector2(12921, 717.00006)
+scale = Vector2(0.3644659, 0.3644659)
 
 [node name="GameObjects" type="Node2D" parent="."]
 process_mode = 1
 position = Vector2(635, 734)
 scale = Vector2(0.1, 0.1)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GameObjects"]
+position = Vector2(123509.984, -330)
+scale = Vector2(14.559717, 14.061667)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameObjects/StaticBody2D" groups=["BigBad"]]
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_tti6a")
+
+[node name="SelfDestruct" type="Sprite2D" parent="GameObjects"]
+z_index = -500
+position = Vector2(132290, -330.00006)
+scale = Vector2(14.559718, 14.061668)
+texture = ExtResource("9_0fms2")
+
+[node name="Area2D" type="Area2D" parent="GameObjects" groups=["Hazard"]]
+position = Vector2(66909.984, -4140)
+rotation = 0.34906587
+scale = Vector2(59.999996, 59.999996)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameObjects/Area2D"]
+position = Vector2(-886.4627, 304.55505)
+rotation = -0.3383176
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_lviwr")
+
+[node name="Area2D2" type="Area2D" parent="GameObjects" groups=["Hazard"]]
+position = Vector2(66909.984, -4140)
+rotation = 0.34906587
+scale = Vector2(59.999996, 59.999996)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameObjects/Area2D2"]
+position = Vector2(-822.9821, 455.08838)
+rotation = -0.3383176
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_lviwr")
+
+[node name="Area2D3" type="Area2D" parent="GameObjects" groups=["Hazard"]]
+position = Vector2(66909.984, -4140)
+rotation = 0.34906587
+scale = Vector2(59.999996, 59.999996)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameObjects/Area2D3"]
+position = Vector2(-688.2266, 437.43466)
+rotation = -0.3383176
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_lviwr")
+
+[node name="Area2D4" type="Area2D" parent="GameObjects" groups=["Hazard"]]
+position = Vector2(66909.984, -4140)
+rotation = 0.34906587
+scale = Vector2(59.999996, 59.999996)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameObjects/Area2D4"]
+position = Vector2(-547.4244, 355.50302)
+rotation = -0.3383176
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_lviwr")
+
+[node name="Area2D8" type="Area2D" parent="GameObjects" groups=["Hazard"]]
+position = Vector2(66909.984, -4140)
+rotation = 0.34906587
+scale = Vector2(59.999996, 59.999996)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameObjects/Area2D8"]
+position = Vector2(-373.58813, 365.3053)
+rotation = -0.3383176
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_lviwr")
+
+[node name="Area2D5" type="Area2D" parent="GameObjects" groups=["Hazard"]]
+position = Vector2(66909.984, -4140)
+rotation = 0.34906587
+scale = Vector2(59.999996, 59.999996)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameObjects/Area2D5"]
+position = Vector2(-415.71423, 151.28604)
+rotation = -0.3383176
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_lviwr")
+
+[node name="Area2D6" type="Area2D" parent="GameObjects" groups=["Hazard"]]
+position = Vector2(66909.984, -4140)
+rotation = 0.34906587
+scale = Vector2(59.999996, 59.999996)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameObjects/Area2D6"]
+position = Vector2(-774.3071, 231.63103)
+rotation = -0.3383176
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_lviwr")
+
+[node name="Area2D7" type="Area2D" parent="GameObjects" groups=["Hazard"]]
+position = Vector2(66909.984, -4140)
+rotation = 0.34906587
+scale = Vector2(59.999996, 59.999996)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameObjects/Area2D7"]
+position = Vector2(-608.3165, 145.32037)
+rotation = -0.3383176
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_lviwr")
 
 [node name="crate_large" parent="GameObjects" instance=ExtResource("9_rskgy")]
 position = Vector2(66909.99, -4140)
@@ -53,6 +208,21 @@ scale = Vector2(199.99997, 199.99997)
 position = Vector2(77169.99, 3710)
 scale = Vector2(120, 120)
 
+[node name="Area2D9" type="Area2D" parent="GameObjects" groups=["Hazard"]]
+position = Vector2(74379.99, -4419.9985)
+rotation = -0.26005405
+scale = Vector2(199.99994, 199.99994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameObjects/Area2D9"]
+position = Vector2(109.59601, 27.764257)
+rotation = 0.29670596
+shape = SubResource("RectangleShape2D_30m1a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="GameObjects/Area2D9"]
+position = Vector2(98.03563, 72.961426)
+rotation = 0.29670596
+shape = SubResource("RectangleShape2D_30m1a")
+
 [node name="crate_medium" parent="GameObjects" instance=ExtResource("4_rskgy")]
 position = Vector2(64869.992, 4219.9985)
 rotation = 0.3874631
@@ -65,163 +235,68 @@ scale = Vector2(199.99995, 199.99995)
 
 [node name="Walls" type="Node2D" parent="GameObjects"]
 position = Vector2(2079.9998, -2269.9998)
+metadata/_edit_lock_ = true
 
 [node name="Wall" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
 position = Vector2(-6119.999, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall2" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(3010, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall3" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(12179.999, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall4" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(21329.998, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall5" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(-6130, -6890)
-rotation = 1.5707964
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall6" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(-6129.999, 2280)
-rotation = 1.5707964
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall7" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(30499.996, -6869.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall8" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(39689.996, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall9" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(48860, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall17" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(58030, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall18" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(67200, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall19" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(76350, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall21" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(85530, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall22" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(94710, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall23" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(103880.01, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall20" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(113050, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall24" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(122220, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall25" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(131370, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall26" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(140550, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall27" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(149730, -6879.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall35" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(58030, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall36" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(67200, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall37" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(76350, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall38" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(85530, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall39" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(94710, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall40" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(103880.01, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall41" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(113050, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall42" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(122220, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall43" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(131370, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall44" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(140550, 9329.999)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall45" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(149730, 9329.999)
-scale = Vector2(9.999998, 9.999998)
+scale = Vector2(471.20007, 9.999998)
+metadata/_edit_lock_ = true
 
 [node name="Wall10" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(-6129.999, 9329.999)
-scale = Vector2(9.999998, 9.999998)
+position = Vector2(288560, 11469.999)
+rotation = 3.1415927
+scale = Vector2(321.99997, 9.999998)
+metadata/_edit_lock_ = true
 
-[node name="Wall11" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(3059.9998, 9329.999)
-scale = Vector2(9.999998, 9.999998)
+[node name="Wall2" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
+position = Vector2(-8380, 15489.998)
+rotation = -1.5707964
+scale = Vector2(471.19998, 9.999996)
+metadata/_edit_lock_ = true
 
-[node name="Wall12" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(12230, 9329.999)
-scale = Vector2(9.999998, 9.999998)
+[node name="ColorRect" type="ColorRect" parent="GameObjects/Walls"]
+offset_left = -9319.999
+offset_top = 11250.002
+offset_right = -9279.999
+offset_bottom = 11290.002
+scale = Vector2(30000, 14490.972)
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
-[node name="Wall13" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(21389.998, 9329.999)
-scale = Vector2(9.999998, 9.999998)
+[node name="ColorRect2" type="ColorRect" parent="GameObjects/Walls"]
+offset_left = -1207050.0
+offset_top = -265660.0
+offset_right = -1207010.0
+offset_bottom = -265620.0
+scale = Vector2(30000, 14490.972)
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
-[node name="Wall14" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(30550, 9330)
-scale = Vector2(9.999998, 9.999998)
+[node name="ColorRect3" type="ColorRect" parent="GameObjects/Walls"]
+offset_left = -72190.0
+offset_top = -586240.06
+offset_right = -72150.0
+offset_bottom = -586200.06
+scale = Vector2(30000, 14490.972)
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
-[node name="Wall15" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(39739.996, 9330)
-scale = Vector2(9.999998, 9.999998)
-
-[node name="Wall16" parent="GameObjects/Walls" instance=ExtResource("3_62ljv")]
-position = Vector2(48909.992, 9330)
-scale = Vector2(9.999998, 9.999998)
+[node name="ColorRect4" type="ColorRect" parent="GameObjects/Walls"]
+offset_left = 160310.0
+offset_top = -501180.0
+offset_right = 160350.0
+offset_bottom = -501140.0
+scale = Vector2(30000, 14490.972)
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Laser1" type="Node2D" parent="GameObjects"]
 visible = false
+metadata/_edit_lock_ = true
 
 [node name="LaserBox" parent="GameObjects/Laser1" instance=ExtResource("4_oo3du")]
 position = Vector2(50430, -3109.9998)
@@ -239,6 +314,7 @@ rotation = -2.1816616
 scale = Vector2(3.999999, 3.999999)
 
 [node name="Laser2" type="Node2D" parent="GameObjects"]
+metadata/_edit_lock_ = true
 
 [node name="LaserBox" parent="GameObjects/Laser2" instance=ExtResource("4_oo3du")]
 position = Vector2(55289.996, -5850.0005)
@@ -251,6 +327,7 @@ rotation = -1.6929693
 scale = Vector2(3.999999, 3.999999)
 
 [node name="Laser3" type="Node2D" parent="GameObjects"]
+metadata/_edit_lock_ = true
 
 [node name="LaserBox2" parent="GameObjects/Laser3" instance=ExtResource("4_oo3du")]
 position = Vector2(64699.992, 1440.0005)
@@ -263,6 +340,7 @@ rotation = 1.9373155
 scale = Vector2(3.9999986, 3.9999986)
 
 [node name="Laser4" type="Node2D" parent="GameObjects"]
+metadata/_edit_lock_ = true
 
 [node name="LaserBox2" parent="GameObjects/Laser4" instance=ExtResource("4_oo3du")]
 position = Vector2(60580, -2910.0002)
@@ -275,6 +353,7 @@ rotation = 2.2619467
 scale = Vector2(3.9999986, 3.9999986)
 
 [node name="Laser5" type="Node2D" parent="GameObjects"]
+metadata/_edit_lock_ = true
 
 [node name="LaserBox2" parent="GameObjects/Laser5" instance=ExtResource("4_oo3du")]
 position = Vector2(70650, 2500.0005)
@@ -287,6 +366,7 @@ rotation = 4.2044983
 scale = Vector2(3.9999986, 3.9999986)
 
 [node name="Laser6" type="Node2D" parent="GameObjects"]
+metadata/_edit_lock_ = true
 
 [node name="LaserBox2" parent="GameObjects/Laser6" instance=ExtResource("4_oo3du")]
 position = Vector2(74809.99, -2019.9994)
@@ -299,141 +379,191 @@ rotation = 4.3982296
 scale = Vector2(3.9999986, 3.9999986)
 
 [node name="Background" type="Node2D" parent="GameObjects"]
+metadata/_edit_lock_ = true
 
 [node name="LavaBackground" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+z_index = -1000
 position = Vector2(91550, -3949.9995)
 scale = Vector2(4.991206, 6.4018526)
+metadata/_edit_lock_ = true
 
 [node name="LavaBackground7" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+z_index = -1000
 position = Vector2(91550, -3949.9995)
 scale = Vector2(4.991206, 6.4018526)
+metadata/_edit_lock_ = true
 
 [node name="LavaBackground8" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+z_index = -1000
 position = Vector2(91550, -3949.9995)
 scale = Vector2(4.991206, 6.4018526)
+metadata/_edit_lock_ = true
 
 [node name="LavaBackground9" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+z_index = -1000
 position = Vector2(86460, -3949.9995)
 scale = Vector2(4.991206, 6.4018526)
+metadata/_edit_lock_ = true
 
 [node name="LavaBackground2" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+z_index = -1000
 position = Vector2(96629.99, -3940.0002)
 scale = Vector2(4.991206, 6.4018526)
+metadata/_edit_lock_ = true
 
 [node name="LavaBackground5" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+z_index = -1000
 position = Vector2(101720, -3939.9995)
 scale = Vector2(4.991206, 6.4018526)
+metadata/_edit_lock_ = true
 
 [node name="LavaBackground3" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+z_index = -1000
 position = Vector2(91500, 3730)
 scale = Vector2(4.991206, 6.4018526)
+metadata/_edit_lock_ = true
 
 [node name="LavaBackground10" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+z_index = -1000
 position = Vector2(86410, 3680)
 scale = Vector2(4.991206, 6.4018526)
+metadata/_edit_lock_ = true
 
 [node name="LavaBackground4" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+z_index = -1000
 position = Vector2(96590, 3750)
 scale = Vector2(4.991206, 6.4018526)
+metadata/_edit_lock_ = true
 
 [node name="LavaBackground6" parent="GameObjects/Background" instance=ExtResource("10_aht15")]
+z_index = -1000
 position = Vector2(101689.99, 3770)
 scale = Vector2(4.991206, 6.4018526)
+metadata/_edit_lock_ = true
 
 [node name="Plank" type="Sprite2D" parent="GameObjects"]
+z_index = -1000
 position = Vector2(94100.14, -143.27916)
 rotation = 1.5707964
 scale = Vector2(4.866404, 19.985714)
 texture = ExtResource("11_4oxwn")
+metadata/_edit_lock_ = true
 
 [node name="MetalFloor" type="Sprite2D" parent="GameObjects"]
+z_index = -1000
 position = Vector2(565.0007, 0.000497818)
 scale = Vector2(8.974608, 13.73047)
 texture = ExtResource("12_orgcr")
+metadata/_edit_lock_ = true
 
 [node name="MetalFloor2" type="Sprite2D" parent="GameObjects"]
-z_index = -100
+z_index = -1000
 position = Vector2(51850, -95.000305)
 scale = Vector2(8.974608, 14.736327)
 texture = ExtResource("12_orgcr")
+metadata/_edit_lock_ = true
 
 [node name="MetalFloor3" type="Sprite2D" parent="GameObjects"]
-z_index = -100
+z_index = -1000
 position = Vector2(60480, -190.0003)
 scale = Vector2(8.974608, 14.736327)
 texture = ExtResource("12_orgcr")
+metadata/_edit_lock_ = true
 
 [node name="MetalFloor4" type="Sprite2D" parent="GameObjects"]
-z_index = -100
+z_index = -1000
 position = Vector2(69440, -260.0003)
 scale = Vector2(8.974608, 14.736327)
 texture = ExtResource("12_orgcr")
+metadata/_edit_lock_ = true
 
 [node name="MetalFloor5" type="Sprite2D" parent="GameObjects"]
-z_index = -100
+z_index = -1000
 position = Vector2(78220, -210.0003)
 scale = Vector2(8.974608, 14.736327)
 texture = ExtResource("12_orgcr")
+metadata/_edit_lock_ = true
 
 [node name="MetalFloor6" type="Sprite2D" parent="GameObjects"]
-z_index = -100
+z_index = -1000
 position = Vector2(85040, -260.0003)
 scale = Vector2(8.974608, 14.736327)
 texture = ExtResource("12_orgcr")
+metadata/_edit_lock_ = true
 
 [node name="Water" type="Sprite2D" parent="GameObjects"]
+z_index = -1000
 position = Vector2(12219.999, -50.000004)
 scale = Vector2(13.671874, 13.671874)
 texture = ExtResource("13_lviwr")
+metadata/_edit_lock_ = true
 
 [node name="Water2" type="Sprite2D" parent="GameObjects"]
+z_index = -1000
 position = Vector2(26140, 5.0007935)
 scale = Vector2(13.671874, 13.740235)
 texture = ExtResource("13_lviwr")
+metadata/_edit_lock_ = true
 
 [node name="Water3" type="Sprite2D" parent="GameObjects"]
+z_index = -1000
 position = Vector2(40130, -20.000534)
 scale = Vector2(13.671874, 13.7890625)
 texture = ExtResource("13_lviwr")
+metadata/_edit_lock_ = true
 
 [node name="Plank2" type="Sprite2D" parent="GameObjects"]
+z_index = -1000
 position = Vector2(10510, -19.99997)
 rotation = -4.728097
 scale = Vector2(6.313656, 10.54777)
 texture = ExtResource("11_4oxwn")
+metadata/_edit_lock_ = true
 
 [node name="Plank3" type="Sprite2D" parent="GameObjects"]
+z_index = -1000
 position = Vector2(24290.002, -1710.0005)
 rotation = -5.1173053
 scale = Vector2(6.313656, 10.54777)
 texture = ExtResource("11_4oxwn")
+metadata/_edit_lock_ = true
 
 [node name="Plank4" type="Sprite2D" parent="GameObjects"]
+z_index = -1000
 position = Vector2(34730.004, 670)
 rotation = -3.8955748
 scale = Vector2(6.313656, 10.54777)
 texture = ExtResource("11_4oxwn")
+metadata/_edit_lock_ = true
 
 [node name="Plank5" type="Sprite2D" parent="GameObjects"]
+z_index = -1000
 position = Vector2(43060, 2490.0005)
 rotation = -5.2551866
 scale = Vector2(6.313656, 10.54777)
 texture = ExtResource("11_4oxwn")
+metadata/_edit_lock_ = true
 
 [node name="DarkCrate" type="Sprite2D" parent="GameObjects"]
+z_index = -1000
 position = Vector2(18269.998, -50)
 scale = Vector2(4.990234, 4.990234)
 texture = ExtResource("16_8rser")
+metadata/_edit_lock_ = true
 
 [node name="DarkCrate2" type="Sprite2D" parent="GameObjects"]
+z_index = -1000
 position = Vector2(31139.992, -2800)
 scale = Vector2(4.990234, 4.990234)
 texture = ExtResource("16_8rser")
+metadata/_edit_lock_ = true
 
 [node name="DarkCrate3" type="Sprite2D" parent="GameObjects"]
+z_index = -1000
 position = Vector2(40089.996, 3599.9995)
 scale = Vector2(4.990234, 4.990234)
 texture = ExtResource("16_8rser")
+metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -444,6 +574,11 @@ visible = false
 [node name="PauseMenu" parent="UI" instance=ExtResource("4_62ljv")]
 visible = false
 
+[node name="LevelCompleteTrigger" parent="." instance=ExtResource("24_k6ro3")]
+position = Vector2(12864, 740)
+scale = Vector2(100, 100)
+
+[connection signal="body_entered" from="BigBad" to="." method="_on_big_bad_body_entered"]
 [connection signal="escape" from="UI/GameInterface" to="." method="_on_game_interface_escape"]
 [connection signal="rotate_left" from="UI/GameInterface" to="." method="_on_game_interface_rotate_left"]
 [connection signal="rotate_right" from="UI/GameInterface" to="." method="_on_game_interface_rotate_right"]
@@ -451,3 +586,4 @@ visible = false
 [connection signal="walk_forward" from="UI/GameInterface" to="." method="_on_game_interface_walk_forward"]
 [connection signal="continue_game" from="UI/PauseMenu" to="." method="_on_pause_menu_continue_game"]
 [connection signal="return_to_menu" from="UI/PauseMenu" to="." method="_on_pause_menu_return_to_menu"]
+[connection signal="body_entered" from="LevelCompleteTrigger" to="." method="_on_level_complete_trigger_body_entered"]

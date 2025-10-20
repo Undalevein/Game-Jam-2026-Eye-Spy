@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://ueuktumffcsa" path="res://Sprites/Laser end.png" id="1_asuo5"]
 
-[node name="LaserEnd" type="StaticBody2D"]
+[node name="LaserEnd" type="Area2D" groups=["Hazard"]]
 
-[node name="LaserEnd" type="Sprite2D" parent="."]
+[node name="LaserEnd2" type="Sprite2D" parent="."]
 position = Vector2(1, 66)
 texture = ExtResource("1_asuo5")
 

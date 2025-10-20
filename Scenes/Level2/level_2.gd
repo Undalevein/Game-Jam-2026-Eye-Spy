@@ -89,7 +89,7 @@ func _on_player_die() -> void:
 	$Player.rotation = initial_player_rotation
 
 func _on_level_complete_trigger_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("BigBad"):
 		stop_all_audio()
 		close_level()
 		level_completed.emit()

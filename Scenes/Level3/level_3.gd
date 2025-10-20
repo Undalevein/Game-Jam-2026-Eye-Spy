@@ -4,16 +4,28 @@ signal return_to_menu
 signal level_completed
 
 var playing_level = false
+var big_bad_moving = false
+
 @onready
 var initial_player_position = $Player.position
 @onready
 var initial_player_rotation = $Player.rotation
+@onready
+var initial_bigbad_position = $BigBad.position
+@onready
+var initial_bigbad_rotation = $BigBad.rotation
 
 func start() -> void:
+	#UI/NoticeScreen3.visible = true
 	$UI/GameInterface.visible = true 
 	get_tree().paused = false
 	playing_level = true
 	$Player.turn_on_camera()
+	$Player/Audio/FactoryAmbiance.playing = true
+
+func _process(_delta: float) -> void:
+	if big_bad_moving:
+		$BigBad.position.x += 5
 
 func _input(_event: InputEvent) -> void:
 	if not playing_level:
@@ -28,15 +40,25 @@ func _on_game_interface_escape() -> void:
 
 func _on_game_interface_walk_forward() -> void:
 	$Player.walk_forward()
+	$Player/Audio/GOSTRAIGHT_Voiceline.playing = false
+	$Player/Audio/GOSTRAIGHT_Voiceline.playing = true
+	$Player/Audio/Footsteps.playing = true
 
 func _on_game_interface_rotate_left() -> void:
+	$Player/Audio/TURNLEFT_Voiceline.playing = false
+	$Player/Audio/TURNLEFT_Voiceline.playing = true
 	$Player.rotate_left()
 
 func _on_game_interface_rotate_right() -> void:
+	$Player/Audio/TURNRIGHT_Voiceline.playing = false
+	$Player/Audio/TURNRIGHT_Voiceline.playing = true
 	$Player.rotate_right()
 
 func _on_game_interface_stop() -> void:
 	$Player.stop()
+	$Player/Audio/STOP_Voiceline.playing = false
+	$Player/Audio/STOP_Voiceline.playing = true
+	$Player/Audio/Footsteps.playing = false
 
 func _on_pause_menu_continue_game() -> void:
 	$UI/PauseMenu.visible = false
@@ -52,4 +74,23 @@ func close_level() -> void:
 	$Player.turn_off_camera()
 	visible = false
 	playing_level = false
+	$Player.position = initial_player_position
+	$Player.rotation = initial_player_rotation
 	$Player/Audio/FactoryAmbiance.playing = false
+	$Player/Audio/Footsteps.playing = false
+	$Player.stop()
+	$BigBad.position = initial_bigbad_position
+	$BigBad.rotation = initial_bigbad_rotation
+
+func _on_player_die() -> void:
+	$Player.position = initial_player_position
+	$Player.rotation = initial_player_rotation
+
+func _on_level_complete_trigger_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		close_level()
+		level_completed.emit()
+
+func _on_big_bad_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		big_bad_moving = true
