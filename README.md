@@ -13,6 +13,9 @@ TURN LEFT - Agent turns left indefinitely.
 TURN RIGHT - Agent turns right indefinitely.
 STOP! - Agent stops walking and/or turning.
 
+# Itch.io Page
+https://undalevein.itch.io/eye-spy
+
 ## Authors
 - Collin Teoh - Sprite/Graphic Designer
 - Seth Saunooke - Story Lead and Sound Designer
