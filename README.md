@@ -4,14 +4,14 @@ Hello, this is from agency headquarters. We just received news of an enemy base 
 
 A game was created during the 48-hour LMU 2025-2026 Game Jam competition. The theme for the project is *Eyes*, which was interpreted by the group as "surveillance" and "watching," and during ideation we thought of something horror related. 
 
-Keyboard Controls:
+Keyboard Controls: 
 ESC - Enters the menu.
 
-UI Button Controls:
-GO STRAIGHT - Agent walks straight indefinitely.
-TURN LEFT - Agent turns left indefinitely.
-TURN RIGHT - Agent turns right indefinitely.
-STOP! - Agent stops walking and/or turning.
+UI Button Controls: 
+GO STRAIGHT - Agent walks straight indefinitely. 
+TURN LEFT - Agent turns left indefinitely. 
+TURN RIGHT - Agent turns right indefinitely. 
+STOP! - Agent stops walking and/or turning. 
 
 # Itch.io Page
 https://undalevein.itch.io/eye-spy
