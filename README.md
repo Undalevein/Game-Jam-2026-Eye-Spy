@@ -7,11 +7,11 @@ A game was created during the 48-hour LMU 2025-2026 Game Jam competition. The th
 Keyboard Controls: 
 ESC - Enters the menu.
 
-UI Button Controls: 
-GO STRAIGHT - Agent walks straight indefinitely. 
-TURN LEFT - Agent turns left indefinitely. 
-TURN RIGHT - Agent turns right indefinitely. 
-STOP! - Agent stops walking and/or turning. 
+UI Button Controls:  
+GO STRAIGHT - Agent walks straight indefinitely.  
+TURN LEFT - Agent turns left indefinitely.   
+TURN RIGHT - Agent turns right indefinitely.  
+STOP! - Agent stops walking and/or turning.  
 
 # Itch.io Page
 https://undalevein.itch.io/eye-spy
