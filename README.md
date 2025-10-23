@@ -17,7 +17,7 @@ STOP! - Agent stops walking and/or turning.
 https://undalevein.itch.io/eye-spy
 
 ## Authors
-- Collin Teoh - Sprite/Graphic Designer
+- Colin Teoh - Sprite/Graphic Designer
 - Seth Saunooke - Story Lead and Sound Designer
 - Kate Chua - Game Developer (User Interface)
 - Wesley Ng - Game Developer (Scripting)
